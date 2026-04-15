@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Изразцы для каминов и барбекю — CeramicaDecor</title>
+  <meta name="description" content="Изразцы ручной работы для печей и каминов. Более 30 коллекций, 150+ оттенков глазурей. Собственное производство, доставка и монтаж по России и СНГ.">
+  <!-- TODO: заменить на реальный домен -->
+  <link rel="canonical" href="">
+  <meta property="og:title" content="Изразцы для каминов и барбекю — CeramicaDecor">
+  <meta property="og:description" content="Изразцы ручной работы. Более 30 коллекций, 150+ оттенков глазурей. Собственное производство.">
+  <meta property="og:image" content="images/izrazcy_card.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <!-- TODO: заменить на реальный домен -->
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="CeramicaDecor">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/tt-ramillas-trl" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO */
+    .izrazcy-hero {
+      position: relative;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: #101010;
+      overflow: hidden;
+      padding: 160px 0 100px;
+    }
+    .izrazcy-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(203,59,37,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .izrazcy-hero__title {
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 400;
+      color: #fff;
+      margin: 0 0 24px;
+      line-height: 1.15;
+    }
+    .izrazcy-hero__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 740px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* STATS */
+    .izrazcy-stats {
+      background: #101010;
+      padding: 60px 0 80px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .izrazcy-stats__grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: nowrap;
+    }
+    .izrazcy-stats__item {
+      text-align: center;
+      padding: 20px 48px;
+      flex-shrink: 0;
+    }
+    .izrazcy-stats__number {
+      display: block;
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      font-weight: 400;
+      background: linear-gradient(135deg, #fff 0%, #ffa15e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .izrazcy-stats__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+    .izrazcy-stats__divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* CATALOG */
+    .izrazcy-catalog {
+      background: #101010;
+      padding: 100px 0 80px;
+    }
+    .izrazcy-catalog__header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .izrazcy-catalog__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Filters */
+    .izrazcy-filters {
+      margin-bottom: 48px;
+    }
+    .izrazcy-filters__row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .izrazcy-filters__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      min-width: 100px;
+      padding-top: 9px;
+      flex-shrink: 0;
+    }
+    .izrazcy-filters__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .izrazcy-filters__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .izrazcy-filters__tag:hover,
+    .izrazcy-filters__tag--active {
+      color: #fff;
+      border-color: #cb3b25;
+      background: rgba(203,59,37,0.15);
+    }
+
+    /* Collections */
+    .izrazcy-collections {
+      margin-bottom: 48px;
+    }
+    .izrazcy-collections__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    .izrazcy-collections__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .izrazcy-collections__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 7px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .izrazcy-collections__tag:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    /* Product grid */
+    .izrazcy-products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .izrazcy-product {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .izrazcy-product:hover {
+      border-color: rgba(203,59,37,0.4);
+      transform: translateY(-3px);
+    }
+    .izrazcy-product__img {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .izrazcy-product__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .izrazcy-product:hover .izrazcy-product__img img {
+      transform: scale(1.05);
+    }
+    .izrazcy-product__body {
+      padding: 20px;
+    }
+    .izrazcy-product__name {
+      font-family: 'TT Ramillas Trl', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .izrazcy-product__art {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+    .izrazcy-product__price {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #cb3b25;
+    }
+    /* Pagination */
+    .izrazcy-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .izrazcy-pagination__btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 42px;
+      text-align: center;
+    }
+    .izrazcy-pagination__btn:hover {
+      color: #fff;
+      border-color: rgba(203,59,37,0.5);
+    }
+    .izrazcy-pagination__btn--active {
+      color: #fff;
+      background: #cb3b25;
+      border-color: #cb3b25;
+    }
+    .izrazcy-pagination__btn--disabled {
+      opacity: 0.3;
+      cursor: default;
+      pointer-events: none;
+    }
+    .izrazcy-pagination__dots {
+      color: rgba(255,255,255,0.3);
+      padding: 0 4px;
+    }
+
+    @media (max-width: 768px) {
+      .izrazcy-filters__row {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .izrazcy-filters__label {
+        min-width: auto;
+        padding-top: 0;
+      }
+      .izrazcy-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .izrazcy-product__body {
+        padding: 14px;
+      }
+      .izrazcy-product__name {
+        font-size: 0.92rem;
+      }
+      .izrazcy-product__price {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .izrazcy-products {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+    }
+
+    /* CTA */
+    .izrazcy-cta {
+      background: #101010;
+      padding: 80px 0 100px;
+      position: relative;
+    }
+    .izrazcy-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(203,59,37,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .izrazcy-cta__inner {
+      max-width: 540px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .izrazcy-cta__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .izrazcy-cta__form {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .izrazcy-cta__group {
+      margin-bottom: 20px;
+    }
+    .izrazcy-cta__label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    .izrazcy-cta__input {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+    .izrazcy-cta__input:focus {
+      border-color: rgba(203,59,37,0.6);
+    }
+    .izrazcy-cta__input::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+    .izrazcy-cta__submit {
+      width: 100%;
+      padding: 16px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      background: #cb3b25;
+      border: 1px solid #cb3b25;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 8px;
+    }
+    .izrazcy-cta__submit:hover {
+      background: #e14c35;
+      border-color: #e14c35;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(203,59,37,0.3);
+    }
+    .izrazcy-cta__privacy {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      margin-top: 16px;
+      text-align: center;
+    }
+    .izrazcy-cta__privacy a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: underline;
+    }
+    .izrazcy-cta__success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      background: rgba(147,210,0,0.1);
+      border: 1px solid rgba(147,210,0,0.3);
+      border-radius: 8px;
+      color: #93d200;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-top: 16px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .izrazcy-hero {
+        padding: 140px 0 70px;
+        min-height: auto;
+      }
+.izrazcy-stats__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 0;
+      }
+      .izrazcy-stats__item {
+        padding: 16px 12px;
+      }
+      .izrazcy-stats__divider {
+        display: none;
+      }
+    }
+  </style>
+<!-- Яндекс.Метрика — TODO: вставить код счётчика -->
+<!-- Яндекс.Вебмастер — TODO: вставить мета-тег верификации -->
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1914468485855789');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1914468485855789&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">
+        <img src="images/logo.png" alt="CeramicaDecor" class="header__logo-img">
+      </a>
+
+      <nav class="header__nav" id="mainNav">
+        <ul class="header__nav-list">
+          <li><a href="catalog.html?cat=kaminy" class="header__nav-link">Камины</a></li>
+          <li><a href="catalog.html?cat=bbq" class="header__nav-link">Барбекю комплексы</a></li>
+          <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
+          <li><a href="about.html" class="header__nav-link">О компании</a></li>
+          <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
+        </ul>
+        <a href="tel:+74952604346" class="header__nav-phone-link">+7 (495) 260-43-46</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="tel:+74952604346" class="header__phone-desktop">+7 (495) 260-43-46</a>
+        <button class="header__burger" id="burgerBtn" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="izrazcy-hero" id="hero">
+    <div class="container">
+      <h1 class="izrazcy-hero__title">Изразцы для каминов и&nbsp;барбекю</h1>
+      <p class="izrazcy-hero__subtitle">Керамические элементы ручной формовки для облицовки каминов, барбекю комплексов и других поверхностей. Более 40 коллекций изразцов, 150+ оттенков глазурей</p>
+    </div>
+  </section>
+
+
+
+  <!-- ===== ЦИФРЫ ===== -->
+  <section class="izrazcy-stats" id="stats">
+    <div class="container">
+      <div class="izrazcy-stats__grid">
+        <div class="izrazcy-stats__item">
+          <span class="izrazcy-stats__number">40+</span>
+          <span class="izrazcy-stats__label">коллекций<br>изразцов</span>
+        </div>
+        <div class="izrazcy-stats__divider"></div>
+        <div class="izrazcy-stats__item">
+          <span class="izrazcy-stats__number">150+</span>
+          <span class="izrazcy-stats__label">оттенков цвета<br>в палитре глазурей</span>
+        </div>
+        <div class="izrazcy-stats__divider"></div>
+        <div class="izrazcy-stats__item">
+          <span class="izrazcy-stats__number">2 000+</span>
+          <span class="izrazcy-stats__label">типовых форм<br>в каталоге</span>
+        </div>
+        <div class="izrazcy-stats__divider"></div>
+        <div class="izrazcy-stats__item">
+          <span class="izrazcy-stats__number">3 000+</span>
+          <span class="izrazcy-stats__label">реализованных<br>проектов</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== КАТАЛОГ ИЗРАЗЦОВ ===== -->
+  <section class="izrazcy-catalog" id="catalog">
+    <div class="container">
+      <div class="izrazcy-catalog__header">
+        <h2 class="section-title section-title--center">Каталог изразцов и&nbsp;их&nbsp;цены</h2>
+      </div>
+
+      <!-- Фильтры -->
+      <div class="izrazcy-filters">
+        <div class="izrazcy-filters__row">
+          <span class="izrazcy-filters__label">Тип</span>
+          <div class="izrazcy-filters__tags">
+            <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+            <span class="izrazcy-filters__tag">Художественная роспись</span>
+            <span class="izrazcy-filters__tag">Цветная роспись</span>
+            <span class="izrazcy-filters__tag">Однотонные</span>
+          </div>
+        </div>
+        <div class="izrazcy-filters__row">
+          <span class="izrazcy-filters__label">Поверхность</span>
+          <div class="izrazcy-filters__tags">
+            <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+            <span class="izrazcy-filters__tag">Гладкие</span>
+            <span class="izrazcy-filters__tag">Рельефные</span>
+          </div>
+        </div>
+        <div class="izrazcy-filters__row">
+          <span class="izrazcy-filters__label">Стиль</span>
+          <div class="izrazcy-filters__tags">
+            <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+            <span class="izrazcy-filters__tag">Арт Нуво</span>
+            <span class="izrazcy-filters__tag">Голландский</span>
+            <span class="izrazcy-filters__tag">Гжель</span>
+            <span class="izrazcy-filters__tag">Прованс</span>
+            <span class="izrazcy-filters__tag">Русский</span>
+            <span class="izrazcy-filters__tag">Ярославский</span>
+            <span class="izrazcy-filters__tag">Охота</span>
+            <span class="izrazcy-filters__tag">Акцентная роспись</span>
+          </div>
+        </div>
+        <div class="izrazcy-filters__row">
+          <span class="izrazcy-filters__label">Цвет</span>
+          <div class="izrazcy-filters__tags">
+            <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+            <span class="izrazcy-filters__tag">Белые/бежевые</span>
+            <span class="izrazcy-filters__tag">Зелёные</span>
+            <span class="izrazcy-filters__tag">Синие</span>
+            <span class="izrazcy-filters__tag">Голубые</span>
+            <span class="izrazcy-filters__tag">Красные/оранжевые</span>
+            <span class="izrazcy-filters__tag">Коричневые</span>
+            <span class="izrazcy-filters__tag">Жёлтые</span>
+            <span class="izrazcy-filters__tag">Серые</span>
+          </div>
+        </div>
+        <div class="izrazcy-filters__row">
+          <span class="izrazcy-filters__label">Типоразмер</span>
+          <div class="izrazcy-filters__tags">
+            <span class="izrazcy-filters__tag izrazcy-filters__tag--active">Все</span>
+            <span class="izrazcy-filters__tag">100x100</span>
+            <span class="izrazcy-filters__tag">150x150</span>
+            <span class="izrazcy-filters__tag">200x200</span>
+            <span class="izrazcy-filters__tag">250x250</span>
+            <span class="izrazcy-filters__tag">300x300</span>
+            <span class="izrazcy-filters__tag">200x100</span>
+            <span class="izrazcy-filters__tag">200x250</span>
+            <span class="izrazcy-filters__tag">250x300</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Коллекции -->
+      <div class="izrazcy-collections">
+        <p class="izrazcy-collections__title">Коллекции</p>
+        <div class="izrazcy-collections__tags">
+          <span class="izrazcy-collections__tag">Дорф</span>
+          <span class="izrazcy-collections__tag">Аврора</span>
+          <span class="izrazcy-collections__tag">Венская</span>
+          <span class="izrazcy-collections__tag">Версаль</span>
+          <span class="izrazcy-collections__tag">Луна</span>
+          <span class="izrazcy-collections__tag">Майоликовые</span>
+          <span class="izrazcy-collections__tag">Президент</span>
+          <span class="izrazcy-collections__tag">Альбион</span>
+          <span class="izrazcy-collections__tag">Византия</span>
+          <span class="izrazcy-collections__tag">Арт Нуво</span>
+          <span class="izrazcy-collections__tag">Неаполь</span>
+          <span class="izrazcy-collections__tag">Брикс</span>
+          <span class="izrazcy-collections__tag">Охота</span>
+          <span class="izrazcy-collections__tag">Пастораль 20x20</span>
+          <span class="izrazcy-collections__tag">Русская Этника</span>
+          <span class="izrazcy-collections__tag">Бристоль</span>
+          <span class="izrazcy-collections__tag">Усадьба</span>
+          <span class="izrazcy-collections__tag">Тюльпан</span>
+          <span class="izrazcy-collections__tag">Элеганс 15x15</span>
+          <span class="izrazcy-collections__tag">Сохо</span>
+          <span class="izrazcy-collections__tag">Модерн</span>
+          <span class="izrazcy-collections__tag">Пастораль 15x15</span>
+          <span class="izrazcy-collections__tag">Универсал</span>
+          <span class="izrazcy-collections__tag">Элеганс 20x20</span>
+          <span class="izrazcy-collections__tag">Ар-Деко</span>
+          <span class="izrazcy-collections__tag">Птички 15x15</span>
+          <span class="izrazcy-collections__tag">Браво</span>
+          <span class="izrazcy-collections__tag">Лион</span>
+          <span class="izrazcy-collections__tag">Птицы 20x20</span>
+          <span class="izrazcy-collections__tag">Балтия</span>
+          <span class="izrazcy-collections__tag">Маджестик</span>
+        </div>
+      </div>
+
+      <!-- Товары (динамически из izrazcy-data.js) -->
+      <div class="izrazcy-products" id="izrazcyGrid"></div>
+      <div class="izrazcy-pagination" id="izrazcyPagination"></div>
+    </div>
+  </section>
+
+  <!-- ===== ОСТАВИТЬ ЗАЯВКУ ===== -->
+  <section class="izrazcy-cta" id="contact">
+    <div class="container">
+      <div class="izrazcy-cta__inner">
+        <h2 class="section-title section-title--center">Оставьте заявку</h2>
+        <p class="izrazcy-cta__subtitle">Мы перезвоним, поможем подобрать коллекцию изразцов и рассчитаем стоимость вашего проекта</p>
+        <form class="izrazcy-cta__form" id="izrazcyForm" name="izrazcy" method="POST">
+          <div class="izrazcy-cta__group">
+            <label class="izrazcy-cta__label">Ваше имя</label>
+            <input type="text" name="name" class="izrazcy-cta__input" placeholder="Введите имя">
+          </div>
+          <div class="izrazcy-cta__group">
+            <label class="izrazcy-cta__label">Телефон</label>
+            <input type="tel" name="phone" class="izrazcy-cta__input" value="+7" placeholder="+7">
+          </div>
+          <button type="submit" class="izrazcy-cta__submit">Отправить заявку</button>
+          <p class="izrazcy-cta__privacy">Нажимая &laquo;Отправить заявку&raquo;, вы соглашаетесь с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></p>
+          <div class="izrazcy-cta__success" id="izrazcySuccess">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="footer__glow"></div>
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="/" class="footer__logo">
+            <img src="images/logo.png" alt="CeramicaDecor" class="footer__logo-img">
+          </a>
+          <p class="footer__tagline">Керамические премиальные облицовки.<br>14+ лет, своё производство, монтаж.<br>Под ключ по России и СНГ</p>
+        </div>
+        <div class="footer__columns">
+          <div class="footer__col">
+            <h4 class="footer__col-title">Каталог</h4>
+            <ul class="footer__col-list">
+              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
+              <li><a href="izrazcy.html">Изразцы</a></li>
+              <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Компания</h4>
+            <ul class="footer__col-list">
+              <li><a href="about.html">О нас</a></li>
+              <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">Контакты</h4>
+            <ul class="footer__col-list">
+              <li><a href="tel:+74952604346">+7 (495) 260-43-46</a></li>
+              <li><a href="mailto:info@ceramicadecor.kz">info@ceramicadecor.kz</a></li>
+            </ul>
+            <div class="footer__socials">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2013&ndash;2026 CeramicaDecor. Все права защищены.</p>
+        <div class="footer__legal">
+          <a href="privacy.html" target="_blank">Политика конфиденциальности</a>
+          <a href="terms.html" target="_blank">Пользовательское соглашение</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="izrazcy-data.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ===== CATALOG WITH PAGINATION =====
+    var PER_PAGE = 21;
+    var currentPage = 1;
+    var grid = document.getElementById('izrazcyGrid');
+    var paginationEl = document.getElementById('izrazcyPagination');
+    var data = typeof izrazcyCatalog !== 'undefined' ? izrazcyCatalog : [];
+    var totalPages = Math.ceil(data.length / PER_PAGE);
+
+    function formatPrice(p) {
+      if (!p) return '';
+      return p.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' \u20BD';
+    }
+
+    function renderProducts(page) {
+      var start = (page - 1) * PER_PAGE;
+      var end = Math.min(start + PER_PAGE, data.length);
+      var html = '';
+      for (var i = start; i < end; i++) {
+        var item = data[i];
+        var imgUrl = 'https://ceramicadecor.ru/userdata/product/preview/' + item.img + '_500.jpg';
+        var link = 'https://ceramicadecor.ru' + item.l;
+        html += '<a class="izrazcy-product" href="' + link + '" target="_blank">' +
+          '<div class="izrazcy-product__img">' +
+            '<img src="' + imgUrl + '" alt="' + (item.n || '') + '" loading="lazy">' +
+          '</div>' +
+          '<div class="izrazcy-product__body">' +
+            '<h3 class="izrazcy-product__name">' + (item.n || '') + '</h3>' +
+            (item.a ? '<p class="izrazcy-product__art">Арт. ' + item.a + '</p>' : '') +
+            (item.p ? '<p class="izrazcy-product__price">' + formatPrice(item.p) + '</p>' : '') +
+          '</div>' +
+        '</a>';
+      }
+      grid.innerHTML = html;
+    }
+
+    function renderPagination(page) {
+      if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
+      var html = '';
+      // Prev
+      html += '<button class="izrazcy-pagination__btn' + (page <= 1 ? ' izrazcy-pagination__btn--disabled' : '') + '" data-page="' + (page - 1) + '">&laquo;</button>';
+
+      // Page numbers with ellipsis
+      var pages = [];
+      pages.push(1);
+      if (page > 3) pages.push('...');
+      for (var i = Math.max(2, page - 1); i <= Math.min(totalPages - 1, page + 1); i++) {
+        pages.push(i);
+      }
+      if (page < totalPages - 2) pages.push('...');
+      if (totalPages > 1) pages.push(totalPages);
+
+      for (var j = 0; j < pages.length; j++) {
+        if (pages[j] === '...') {
+          html += '<span class="izrazcy-pagination__dots">...</span>';
+        } else {
+          html += '<button class="izrazcy-pagination__btn' + (pages[j] === page ? ' izrazcy-pagination__btn--active' : '') + '" data-page="' + pages[j] + '">' + pages[j] + '</button>';
+        }
+      }
+
+      // Next
+      html += '<button class="izrazcy-pagination__btn' + (page >= totalPages ? ' izrazcy-pagination__btn--disabled' : '') + '" data-page="' + (page + 1) + '">&raquo;</button>';
+
+      paginationEl.innerHTML = html;
+    }
+
+    function goToPage(page) {
+      if (page < 1 || page > totalPages) return;
+      currentPage = page;
+      renderProducts(page);
+      renderPagination(page);
+      // Scroll to catalog top
+      var catalogSection = document.getElementById('catalog');
+      if (catalogSection) {
+        catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Event delegation for pagination
+    paginationEl.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-page]');
+      if (btn) goToPage(parseInt(btn.getAttribute('data-page')));
+    });
+
+    // Initial render
+    if (data.length > 0) {
+      renderProducts(1);
+      renderPagination(1);
+    }
+
+    // ===== FORM SUBMISSION =====
+    var form = document.getElementById('izrazcyForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(form);
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        }).then(function() {
+          document.getElementById('izrazcySuccess').style.display = 'block';
+          form.reset();
+        }).catch(function() {
+          alert('Произошла ошибка. Позвоните нам: +7 (495) 260-43-46');
+        });
+      });
+    }
+  });
+  </script>
+</body>
+</html>
