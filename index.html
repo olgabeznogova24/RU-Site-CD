@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" type="image/webp" href="images/hero_desktop.webp" media="(min-width: 769px)">
-  <link rel="preload" as="image" type="image/webp" href="images/hero_main.webp" media="(max-width: 768px)">
+  <link rel="preload" as="image" type="image/webp" href="images/hero_main@2x.webp" imagesrcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" media="(max-width: 768px)">
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Ramillas/TT_Ramillas_Light.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="fonts/TT_Commons_Pro/TT_Commons_Pro_Regular.woff2" crossorigin>
   <link rel="preload" href="https://fonts.cdnfonts.com/css/tt-ramillas-trl" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -92,14 +92,17 @@
         <ul class="header__nav-list">
           <li><a href="catalog.html?cat=kaminy" class="header__nav-link">Камины</a></li>
           <li><a href="catalog.html?cat=bbq" class="header__nav-link">Барбекю комплексы</a></li>
-          <li><a href="catalog.html?cat=kaminy" class="header__nav-link">Изразцы</a></li>
+          <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
+          <li><a href="ready.html" class="header__nav-link">Печи-камины из наличия</a></li>
           <li><a href="about.html" class="header__nav-link">О компании</a></li>
           <li><a href="#contact" class="header__nav-link">Контакты</a></li>
         </ul>
         <a href="tel:+74952604346" class="header__nav-phone-link">+7 (495) 260-43-46</a>
+        <div class="header__nav-item--search"><a href="#" class="header__nav-link" id="searchBtnMobile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Поиск</a></div>
       </nav>
 
       <div class="header__actions">
+        <button class="header__search-btn" id="searchBtn" aria-label="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
         <a href="tel:+74952604346" class="header__phone-desktop">+7 (495) 260-43-46</a>
         <button class="header__burger" id="burgerBtn" aria-label="Меню">
           <span></span><span></span><span></span>
@@ -114,14 +117,15 @@
       <picture>
         <source media="(min-width: 769px)" srcset="images/hero_desktop.webp" type="image/webp">
         <source media="(min-width: 769px)" srcset="images/hero_desktop.jpg">
-        <source srcset="images/hero_main.webp" type="image/webp">
+        <source srcset="images/hero_main@2x.webp 2x, images/hero_main.webp 1x" type="image/webp">
+        <source srcset="images/hero_main@2x.jpg 2x, images/hero_main.jpg 1x">
         <img src="images/hero_main.jpg" alt="Изразцовый камин с огнём в интерьере" loading="eager" fetchpriority="high" decoding="async">
       </picture>
     </div>
     <div class="hero__overlay"></div>
     <div class="container hero__content">
-      <h1 class="hero__title">Рассчитайте стоимость камина или барбекю в&nbsp;керамической облицовке за&nbsp;2&nbsp;минуты</h1>
-      <p class="hero__offer">Бесплатный 3D-проект за 2 дня. Доставка и монтаж по всей России. Гарантия 5 лет.</p>
+      <h1 class="hero__title">Премиальные камины, барбекю и&nbsp;облицовка</h1>
+      <p class="hero__offer">Бесплатный 3D-проект и смета за 2–3 дня</p>
       <div class="hero__trust">
         <div class="hero__trust-item">
           <span class="hero__trust-num">14</span>
@@ -129,17 +133,18 @@
         </div>
         <div class="hero__trust-divider"></div>
         <div class="hero__trust-item">
-          <span class="hero__trust-num">3 000+</span>
-          <span class="hero__trust-text">реализованных<br>проектов</span>
+          <span class="hero__trust-num">3000</span>
+          <span class="hero__trust-text">готовых<br>проектов</span>
         </div>
         <div class="hero__trust-divider"></div>
         <div class="hero__trust-item">
-          <span class="hero__trust-num">100%</span>
-          <span class="hero__trust-text">работ —<br>под ключ</span>
+          <span class="hero__trust-num">&gt;40</span>
+          <span class="hero__trust-text">коллекций<br>изразцов</span>
         </div>
       </div>
       <div class="hero__buttons">
-        <a href="#contact" class="btn btn--primary">Рассчитать стоимость</a>
+        <a href="#contact" class="btn btn--primary">Получить расчёт бесплатно</a>
+        <a href="https://wa.me/77027352130?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BA%D0%B0%D0%BC%D0%B8%D0%BD/%D0%B1%D0%B0%D1%80%D0%B1%D0%B5%D0%BA%D1%8E%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B8%D1%86%D0%BE%D0%B2%D0%BA%D0%B5.%20%D0%9F%D0%BE%D0%BC%D0%BE%D0%B3%D0%B8%D1%82%D0%B5%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C" target="_blank" class="btn btn--whatsapp-sm"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
       </div>
     </div>
   </section>
@@ -271,8 +276,8 @@
         <p class="showcase__desc">Тёмная глазурь, рельефные изразцы, живой огонь</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
-            <p class="showcase__price">Облицовка от <strong>5,3 млн тенге</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
-            <p class="showcase__price">Под ключ от <strong>10 млн тенге</strong> <span class="showcase__price-note">— топка, дымоход, облицовка, монтаж</span></p>
+            <p class="showcase__price">Облицовка от <strong>815 000 ₽</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
+            <p class="showcase__price">Под ключ от <strong>1 540 000 ₽</strong> <span class="showcase__price-note">— топка, дымоход, облицовка, монтаж</span></p>
           </div>
           <div class="showcase__cta-block">
           <div class="showcase__offer-badge">
@@ -310,8 +315,8 @@
         <p class="showcase__desc">Бирюзовая глазурь, панорамная топка, современный&nbsp;интерьер</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
-            <p class="showcase__price">Облицовка от <strong>5,4 млн тенге</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
-            <p class="showcase__price">Под ключ от <strong>13,2 млн тенге</strong> <span class="showcase__price-note">— топка, дымоход, облицовка, монтаж</span></p>
+            <p class="showcase__price">Облицовка от <strong>830 000 ₽</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
+            <p class="showcase__price">Под ключ от <strong>2 030 000 ₽</strong> <span class="showcase__price-note">— топка, дымоход, облицовка, монтаж</span></p>
           </div>
           <div class="showcase__cta-block">
             <div class="showcase__offer-badge">
@@ -348,8 +353,8 @@
         <p class="showcase__desc">Белые изразцы, мангал, рабочая зона, классический&nbsp;стиль</p>
         <div class="showcase__bottom">
           <div class="showcase__prices">
-            <p class="showcase__price">Облицовка от <strong>6,5 млн тенге</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
-            <p class="showcase__price">Под ключ от <strong>18,5 млн тенге</strong> <span class="showcase__price-note">— оборудование, фурнитура, облицовка, монтаж</span></p>
+            <p class="showcase__price">Облицовка от <strong>1 000 000 ₽</strong> <span class="showcase__price-note">— изразцы, глазурь</span></p>
+            <p class="showcase__price">Под ключ от <strong>2 850 000 ₽</strong> <span class="showcase__price-note">— оборудование, фурнитура, облицовка, монтаж</span></p>
           </div>
           <div class="showcase__cta-block">
             <div class="showcase__offer-badge">
@@ -405,7 +410,7 @@
           <div class="text">
             <div class="top">
               <p class="title">Проектирование и дизайн</p>
-              <p>Всё начинается с вашего запроса. Мы создаём архитектуру камина, подбираем пропорции и материалы, разрабатываем 3D-визуализацию для утверждения. Бесплатно.</p>
+              <p>Всё начинается с эскиза. Мы создаём архитектуру камина, подбираем пропорции и материалы, разрабатываем 3D-визуализацию для утверждения.</p>
             </div>
             <div class="bottom">01</div>
           </div>
@@ -420,7 +425,7 @@
           <div class="text">
             <div class="top">
               <p class="title">Изготовление изразцов</p>
-              <p>Каждый элемент лепится и расписывается вручную на нашей фабрике. Проходит несколько этапов формовки и двукратный обжиг при температуре свыше 1000°C.</p>
+              <p>Каждый элемент лепится и расписывается вручную. Проходит несколько этапов формовки и двукратный обжиг при температуре свыше 1000 °C.</p>
             </div>
             <div class="bottom">02</div>
           </div>
@@ -429,13 +434,13 @@
           <div class="image">
             <picture>
               <source srcset="images/homepage/how_made_3.webp" type="image/webp">
-              <img src="images/homepage/how_made_3.jpg" alt="Доставка по России" title="Доставка по России" loading="lazy" decoding="async" />
+              <img src="images/homepage/how_made_3.jpg" alt="Монтаж конструктивной части" title="Монтаж конструктивной части" loading="lazy" decoding="async" />
             </picture>
           </div>
           <div class="text">
             <div class="top">
-              <p class="title">Доставка по России</p>
-              <p>Готовые изразцы бережно упаковываются и доставляются в любой город России. Мы контролируем логистику на каждом этапе.</p>
+              <p class="title">Монтаж конструктивной части</p>
+              <p>На объекте устанавливается основа камина: корпус, топка, дымоход и элементы технической системы.</p>
             </div>
             <div class="bottom">03</div>
           </div>
@@ -450,7 +455,7 @@
           <div class="text">
             <div class="top">
               <p class="title">Монтаж облицовки</p>
-              <p>Финальный этап — наши мастера выезжают на объект и выполняют монтаж облицовки. Каждый элемент подгоняется вручную, создавая единое полотно.</p>
+              <p>Финальный этап — облицовка изразцами. Каждый элемент подгоняется вручную, создавая единое полотно.</p>
             </div>
             <div class="bottom">04</div>
           </div>
@@ -647,7 +652,7 @@
         </div>
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">Сколько стоит камин в изразцовой облицовке?</button>
-          <div class="faq__answer"><p>Стоимость зависит от коллекции, размера и комплектации. Облицовка камина начинается от 5,3 млн тенге, проект под ключ (с топкой, дымоходом и монтажом) — от 10 млн тенге. Оставьте заявку — мы рассчитаем стоимость именно для вашего проекта за 2 дня.</p></div>
+          <div class="faq__answer"><p>Стоимость зависит от коллекции, размера и комплектации. Облицовка камина начинается от 815 000 ₽, проект под ключ (с топкой, дымоходом и монтажом) — от 1 540 000 ₽. Оставьте заявку — мы рассчитаем стоимость именно для вашего проекта за 2 дня.</p></div>
         </div>
         <div class="faq__item">
           <button class="faq__question" aria-expanded="false">Сколько времени занимает изготовление и установка?</button>
@@ -719,8 +724,9 @@
             <h4 class="footer__col-title">Каталог</h4>
             <ul class="footer__col-list">
               <li><a href="catalog.html?cat=kaminy">Камины</a></li>
-              <li><a href="catalog.html?cat=kaminy">Изразцы</a></li>
+              <li><a href="izrazcy.html">Изразцы</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+              <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
           </div>
           <div class="footer__col">
@@ -763,7 +769,11 @@
     </button>
   </div>
 
+  <button class="scroll-to-top" aria-label="Наверх">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
   <script src="script.js" defer></script>
+  <script src="search.js" defer></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('contactForm');
@@ -774,7 +784,7 @@
       var phone = form.querySelector('[name="phone"]').value.trim();
       if (!name || !phone) return;
       var text = '\u{1F4CB} Новая заявка с сайта РФ!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + '\n\u{1F4C4} Страница: Главная';
-      fetch('https://api.telegram.org/botYOUR_TELEGRAM_BOT_TOKEN/sendMessage', {
+      fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ chat_id: '-1003871745435', text: text })

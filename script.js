@@ -461,12 +461,27 @@
         });
       }
       var text = '\u{1F4CB} Заявка с сайта РФ!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + (product ? '\n\u{1F3E0} Продукт: ' + product : '') + '\n\u{1F4C4} Страница: ' + location.pathname;
-      fetch('https://api.telegram.org/botYOUR_TELEGRAM_BOT_TOKEN/sendMessage', {
+      fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({chat_id: '-1003871745435', text: text})
       });
       this.innerHTML = '<p style="color:#25D366;text-align:center;padding:20px 0;">Спасибо! Мы перезвоним в ближайшее время.</p>';
+    });
+  }
+
+  /* ----- Scroll to top ----- */
+  var scrollToTopBtn = document.querySelector('.scroll-to-top');
+  if (scrollToTopBtn) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 400) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
