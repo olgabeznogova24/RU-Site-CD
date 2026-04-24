@@ -827,15 +827,30 @@ ul, ol {
   text-align: center;
   padding: 40px 0 80px 0;
   position: relative;
+}
+
+.about__heading::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 240px;
   background-image: url('images/top_highlight_1.webp');
-  background-position: bottom;
+  background-position: bottom center;
   background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .about__header {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .mobile-br {
