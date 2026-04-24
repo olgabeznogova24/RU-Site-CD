@@ -174,13 +174,7 @@
         return;
       }
 
-      // Track Lead conversion (Facebook Pixel)
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          content_name: 'Contact Form',
-          content_category: 'Камины'
-        });
-      }
+
 
       // Visual feedback
       var submitBtn = this.querySelector('button[type="submit"]');
@@ -350,25 +344,21 @@
     }, { passive: true });
   }
 
-  /* ----- Facebook Pixel: Track catalog views ----- */
   document.querySelectorAll('a[href*="catalog.html"]').forEach(function (link) {
     link.addEventListener('click', function () {
-      if (typeof fbq === 'function') {
-        fbq('track', 'ViewContent', { content_type: 'product_group', content_name: 'Catalog' });
-      }
-    });
   });
 
-  /* ----- YouTube video reviews ----- */
+  /* ----- VK video reviews ----- */
   document.querySelectorAll('.one_story--video').forEach(function (card) {
     card.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var youtubeId = this.dataset.youtube;
-      if (!youtubeId) return;
+      var vkId = this.dataset.vk;
+      if (!vkId) return;
+      var parts = vkId.replace('video', '').split('_');
       var imageDiv = this.querySelector('.image');
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&rel=0';
+      iframe.src = 'https://vk.com/video_ext.php?oid=' + parts[0] + '&id=' + parts[1] + '&hd=2&autoplay=1';
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allow', 'autoplay; encrypted-media');
       iframe.setAttribute('allowfullscreen', '');
@@ -453,18 +443,12 @@
       var phone = this.querySelector('[name="phone"]').value.trim();
       var product = this.querySelector('[name="product"]').value;
       if (!name || phone.replace(/\D/g,'').length < 10) return;
-      // Track Lead conversion (Facebook Pixel)
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          content_name: 'Modal Form',
-          content_category: product || 'Камины'
-        });
-      }
+
       var text = '\u{1F4CB} Заявка с сайта РФ!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + (product ? '\n\u{1F3E0} Продукт: ' + product : '') + '\n\u{1F4C4} Страница: ' + location.pathname;
-      fetch('https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage', {
+      fetch('https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({chat_id: '-1003871745435', text: text})
+        body: JSON.stringify({chat_id: 'YOUR_CHAT_ID', text: text})
       });
       this.innerHTML = '<p style="color:#25D366;text-align:center;padding:20px 0;">Спасибо! Мы перезвоним в ближайшее время.</p>';
     });
@@ -494,6 +478,22 @@
         closeMenu();
       }
     }, 200);
+  });
+
+  /* ----- Cookie banner ----- */
+  document.addEventListener('DOMContentLoaded', function () {
+    var cookieBanner = document.getElementById('cookieBanner');
+    var cookieAcceptBtn = document.getElementById('cookieAccept');
+    if (!cookieBanner || !cookieAcceptBtn) return;
+    if (localStorage.getItem('cookieAccepted')) {
+      cookieBanner.style.display = 'none';
+      return;
+    }
+    cookieAcceptBtn.addEventListener('click', function () {
+      localStorage.setItem('cookieAccepted', '1');
+      cookieBanner.classList.add('cookie-banner--hidden');
+      setTimeout(function () { cookieBanner.style.display = 'none'; }, 320);
+    });
   });
 
 })();

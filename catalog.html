@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -29,8 +29,20 @@
       padding: 160px 0 140px;
       text-align: center;
       position: relative;
-      background: url('images/izrazcy_card.webp') center/cover no-repeat;
+      background: url('images/banner-kaminy_web.jpg') center 20%/cover no-repeat;
       margin-bottom: -60px;
+    }
+    @supports (background-image: url('x.webp')) {
+      .catalog-hero {
+        background-image: url('images/banner-kaminy_web.webp');
+      }
+      .catalog-hero--bbq {
+        background-image: url('images/banner-bbk_web.webp');
+      }
+    }
+    .catalog-hero--bbq {
+      background-image: url('images/banner-bbk_web.jpg');
+      background-position: center 20%;
     }
     .catalog-hero::before {
       content: '';
@@ -56,11 +68,15 @@
       color: rgba(255,255,255,0.6);
       font-weight: 300;
       margin: 0;
+      text-wrap: balance;
+    }
+    @media (max-width: 768px) {
+      .catalog-hero__subtitle br { display: none; }
     }
 
     /* ===== CATALOG FILTER TABS ===== */
     .catalog-filters {
-      padding: 80px 0 48px;
+      padding: 108px 0 48px;
     }
     .catalog-filters__tabs {
       display: flex;
@@ -119,6 +135,20 @@
       border: 1px solid rgba(255,255,255,0.08);
       transition: transform 0.3s ease, border-color 0.3s ease;
       cursor: pointer;
+    }
+    @media (min-width: 769px) {
+      .product-card {
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card__body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .product-card__actions {
+        margin-top: auto;
+      }
     }
     .product-card:hover {
       transform: translateY(-4px);
@@ -277,6 +307,23 @@
       background: rgba(255,255,255,0.08);
       border-color: rgba(255,255,255,0.3);
     }
+    .product-card__btn--details {
+      background: none;
+      border: none;
+      padding: 0;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      font-weight: 400;
+      text-decoration: underline;
+      gap: 4px;
+      flex-basis: 100%;
+      align-self: flex-start;
+    }
+    .product-card__btn--details:hover {
+      background: none;
+      border: none;
+      color: #fff;
+    }
     /* ===== CARD REVIEW BLOCK ===== */
     .product-card__review {
       display: flex;
@@ -335,8 +382,7 @@
     /* ===== MODAL REVIEWS SECTION ===== */
     .product-modal__reviews {
       padding: 40px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 40px;
+      margin-top: 8px;
     }
     .product-modal__reviews h3 {
       font-family: 'TT Ramillas Trl', serif;
@@ -713,7 +759,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 16px;
     }
     .product-modal__description h3 {
       font-family: 'TT Ramillas Trl', serif;
@@ -768,6 +814,27 @@
       padding: 32px 0;
       border-top: 1px solid rgba(255,255,255,0.08);
     }
+    .product-modal__prices {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+    .product-modal__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .product-modal__promo {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      font-weight: 300;
+      flex-basis: 100%;
+      margin: 0;
+      line-height: 1.5;
+    }
     .product-modal__price {
       font-family: 'Inter', sans-serif;
       font-size: 1.6rem;
@@ -781,13 +848,13 @@
       font-weight: 300;
       margin-top: 2px;
     }
-    .product-modal__wa-btn {
+    .product-modal__request-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 14px 32px;
       border-radius: 100px;
-      background: #25D366;
+      background: #cb3b25;
       color: #fff;
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
@@ -797,20 +864,21 @@
       border: none;
       cursor: pointer;
     }
-    .product-modal__wa-btn:hover {
-      background: #1fb855;
-      transform: translateY(-2px);
+    .product-modal__request-btn:hover {
+      background: #a82e1a;
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .catalog-hero {
         padding: 130px 0 50px;
+        min-height: 480px;
       }
       .catalog-filters__tabs {
         justify-content: flex-start;
         flex-wrap: nowrap;
-        padding: 4px 16px;
+        gap: 8px;
+        padding: 4px 0;
       }
       .catalog-grid__inner {
         grid-template-columns: 1fr;
@@ -857,9 +925,13 @@
       }
     }
     @media (max-width: 480px) {
+      .catalog-filters__tabs {
+        justify-content: center;
+        gap: 6px;
+      }
       .catalog-filters__tab {
-        padding: 8px 18px;
-        font-size: 0.85rem;
+        padding: 7px 12px;
+        font-size: 0.78rem;
       }
       .product-card__actions {
         flex-direction: column;
@@ -873,21 +945,6 @@
       }
     }
   </style>
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1914468485855789');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1914468485855789&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
   <!-- Яндекс.Метрика — TODO: вставить код счётчика -->
   <!-- Яндекс.Вебмастер — TODO: вставить мета-тег верификации -->
 </head>
@@ -896,7 +953,7 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="/" class="header__logo">
+      <a href="index.html" class="header__logo">
         <img src="images/logo.png" alt="CeramicaDecor" class="header__logo-img">
       </a>
       <nav class="header__nav" id="mainNav">
@@ -906,14 +963,14 @@
           <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
           <li><a href="ready.html" class="header__nav-link">Печи-камины из наличия</a></li>
           <li><a href="about.html" class="header__nav-link">О компании</a></li>
-          <li><a href="index.html#contact" class="header__nav-link">Контакты</a></li>
+          <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
         </ul>
-        <a href="tel:+74952604346" class="header__nav-phone-link">+7 (495) 260-43-46</a>
+        <a href="tel:+74952293046" class="header__nav-phone-link">+7 (495) 229-30-46</a>
         <div class="header__nav-item--search"><a href="#" class="header__nav-link" id="searchBtnMobile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Поиск</a></div>
       </nav>
       <div class="header__actions">
         <button class="header__search-btn" id="searchBtn" aria-label="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-        <a href="tel:+74952604346" class="header__phone-desktop">+7 (495) 260-43-46</a>
+        <a href="tel:+74952293046" class="header__phone-desktop">+7 (495) 229-30-46</a>
         <button class="header__burger" id="burgerBtn" aria-label="Меню">
           <span></span><span></span><span></span>
         </button>
@@ -935,6 +992,7 @@
       <div class="catalog-filters__tabs" id="catalogTabs">
         <button class="catalog-filters__tab catalog-filters__tab--active" data-category="kaminy">Камины</button>
         <button class="catalog-filters__tab" data-category="bbq">Барбекю комплексы</button>
+        <a href="izrazcy.html" class="catalog-filters__tab">Изразцы</a>
       </div>
     </div>
   </section>
@@ -968,6 +1026,10 @@
             <label for="requestMessage">Комментарий (необязательно)</label>
             <textarea id="requestMessage" placeholder="Ваши пожелания или вопросы"></textarea>
           </div>
+          <label class="consent-label">
+            <input type="checkbox" class="consent-checkbox" required>
+            <span>Я даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+          </label>
           <button type="submit" class="request-modal__submit">Отправить заявку</button>
         </form>
       </div>
@@ -995,30 +1057,28 @@
         </div>
         <div class="footer__columns">
           <div class="footer__col">
-            <h4 class="footer__col-title">Каталог</h4>
+            <h4 class="footer__col-title" style="font-size:16px;font-weight:500;">Каталог</h4>
             <ul class="footer__col-list">
+              <li><a href="izrazcy.html">Изразцы</a></li>
               <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
+              <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Компания</h4>
-            <ul class="footer__col-list">
-              <li><a href="about.html">О нас</a></li>
-              <li><a href="index.html#contact">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4 class="footer__col-title">Контакты</h4>
-            <ul class="footer__col-list">
-              <li><a href="tel:+74952604346">+7 (495) 260-43-46</a></li>
-              <li><a href="mailto:info@ceramicadecor.kz">info@ceramicadecor.kz</a></li>
+            <ul class="footer__col-list footer__col-list--offset">
+              <li><a href="about.html" style="color:#fff;font-size:16px;font-weight:500;">О компании</a></li>
+              <li><a href="contacts.html" style="color:#fff;font-size:16px;font-weight:500;">Контакты</a></li>
+              <li><a href="tel:+74952293046" style="font-weight:700;">+7 (495) 229-30-46</a></li>
+              <li><a href="mailto:info@ceramicadecor.ru" style="font-weight:700;">info@ceramicadecor.ru</a></li>
+              <li style="margin-top: 0.75em;"><a href="contacts.html" class="btn btn--primary" style="padding:9px 20px;font-size:13px;color:#fff;">Оставить заявку</a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">&copy; 2013&ndash;2026 CeramicaDecor. Все права защищены.</p>
+        <p class="footer__org-info">ООО «АРТ КЕРАМИКА» &middot; ИНН&nbsp;5018178964 &middot; ОГРН&nbsp;1155018002150 &middot; 141068, Московская обл., г.&nbsp;Королев, ул.&nbsp;Силикатная, д.&nbsp;74, пом.&nbsp;204</p>
         <div class="footer__legal">
           <a href="privacy.html" target="_blank">Политика конфиденциальности</a>
           <a href="terms.html" target="_blank">Пользовательское соглашение</a>
@@ -1035,14 +1095,14 @@
     var ARROW_SVG = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     var PLAY_SVG = '<svg class="play-icon" viewBox="0 0 16 16" fill="#fff"><path d="M5 3l8 5-8 5V3z"/></svg>';
 
-    /* ===== REVIEW MAP (collection keyword → youtube ID + label) ===== */
+    /* ===== REVIEW MAP (collection keyword → vk video ID + thumb + label) ===== */
     var reviewMap = {
-      'дорф': { yt: '0L_86tx7LKU', label: 'Отзыв клиента о камине Дорф' },
-      'альбион': { yt: '9H20cngXrkg', label: 'Отзыв дизайнера о камине Альбион' },
-      'арт нуво': { yt: 'OblpYtDbL44', label: 'Отзыв дизайнера интерьера' },
-      'бристоль': { yt: 'KWdDdeYNZss', label: 'Отзыв клиента о камине Бристоль' },
-      'универсал': { yt: 'qd3QKBKgHwE', label: 'Отзыв заказчицы о камине Универсал' },
-      'тюльпан': { yt: 'dg02wO84kMk', label: 'Отзыв заказчицы о камине Тюльпан' }
+      'дорф': { vk: 'video-178201211_456239596', thumb: 'video_thumb_dorf_client.jpg', label: 'Отзыв клиента о камине Дорф' },
+      'альбион': { vk: 'video-178201211_456239511', thumb: 'video_thumb_albion_designer.jpg', label: 'Отзыв дизайнера о камине Альбион' },
+      'арт нуво': { vk: 'video-178201211_456239559', thumb: 'video_thumb_artnouvo_designer.jpg', label: 'Отзыв дизайнера интерьера' },
+      'бристоль': { vk: 'video-178201211_456239074', thumb: 'video_thumb_bristol_client.jpg', label: 'Отзыв клиента о камине Бристоль' },
+      'универсал': { vk: 'video-178201211_456239193', thumb: 'video_thumb_universal_client.jpg', label: 'Отзыв заказчицы о камине Универсал' },
+      'тюльпан': { vk: 'video-178201211_456239167', thumb: 'video_thumb_tulip_client.jpg', label: 'Отзыв заказчицы о камине Тюльпан' }
     };
 
     function getReview(productName) {
@@ -1063,8 +1123,8 @@
         name: 'Камин Альбион',
         collection: 'Коллекция Альбион',
         desc: 'Классический белый камин Альбион с топкой LISEO CASTIRON',
-        price: 'от 615 000',
-        priceTurnkey: 'от 1 200 000',
+        price: '767 994',
+        priceTurnkey: '1 350 000',
         fullDesc: 'Классический белый камин Альбион с топкой LISEO CASTIRON. Изразцовая облицовка ручной работы в белоснежной цветовой гамме создаёт элегантный и утончённый образ. Камин гармонично вписывается в классические и неоклассические интерьеры.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1083,8 +1143,8 @@
         name: 'Биокамин Альбион',
         collection: 'Коллекция Альбион',
         desc: 'Облицовка биокамина изразцами Альбион в майоликовой глазури',
-        price: 'от 615 000',
-        priceTurnkey: 'от 1 215 000',
+        price: '722 464',
+        priceTurnkey: '1 355 786',
         fullDesc: 'Облицовка биокамина изразцами Альбион в майоликовой глазури. Уникальный проект, сочетающий современный биокамин с традиционной изразцовой облицовкой. Майоликовая глазурь придаёт поверхности особый блеск и глубину цвета.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1099,8 +1159,8 @@
         name: 'Камин Тюльпан',
         collection: 'Коллекция Тюльпан',
         desc: 'Камин в облицовке Тюльпан с Г-образной топкой Экокамин Альфа 1000 RB',
-        price: 'от 923 000',
-        priceTurnkey: 'от 1 692 000',
+        price: '1 095 310',
+        priceTurnkey: '1 850 000',
         fullDesc: 'Камин в облицовке Тюльпан с Г-образной топкой Экокамин Альфа 1000 RB. Рельефные изразцы с цветочным орнаментом в зелёных тонах. Г-образная топка позволяет наслаждаться видом огня с двух сторон.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1115,8 +1175,8 @@
         name: 'Камин Тюльпан Арктика',
         collection: 'Коллекция Тюльпан',
         desc: 'Комплект каминной облицовки Тюльпан в цвете Арктика',
-        price: 'от 662 000',
-        priceTurnkey: 'от 1 000 000',
+        price: '793 469',
+        priceTurnkey: '1 150 000',
         fullDesc: 'Комплект каминной облицовки Тюльпан в цвете Арктика. Белоснежные изразцы с рельефными тюльпанами создают нежный и воздушный образ камина. Идеально подходит для светлых интерьеров.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1131,8 +1191,8 @@
         name: 'Камин Версаль',
         collection: 'Коллекция Версаль',
         desc: 'Изразцовый камин Версаль в цвете Арктическая лагуна',
-        price: 'от 846 000',
-        priceTurnkey: 'от 2 462 000',
+        price: '1 001 758',
+        priceTurnkey: '2 084 728',
         fullDesc: 'Изразцовый камин Версаль в цвете Арктическая лагуна. Роскошная облицовка с детализированным орнаментом в насыщенных лазурных тонах. Вдохновлен интерьерами французских дворцов. Каждый изразец изготовлен вручную.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1147,8 +1207,8 @@
         name: 'Камин Бристоль',
         collection: 'Коллекция Бристоль',
         desc: 'Камин с П-образной топкой в облицовке «Бристоль» в цвете Чёрная ночь',
-        price: 'от 815 000',
-        priceTurnkey: 'от 2 000 000',
+        price: '969 760',
+        priceTurnkey: '1 950 000',
         fullDesc: 'Камин с П-образной топкой в облицовке «Бристоль» в цвете Чёрная ночь. Тёмные изразцы с глубокой глазурью создают драматичный и стильный образ. П-образная топка обеспечивает обзор огня с трёх сторон.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1164,8 +1224,8 @@
         name: 'Камин Дорф',
         collection: 'Коллекция Дорф',
         desc: 'Биокамин Дорф с очагом Airtone Andalle 1000',
-        price: 'от 1 508 000',
-        priceTurnkey: 'от 2 508 000',
+        price: '1 800 849',
+        priceTurnkey: '2 650 000',
         fullDesc: 'Декоративный камин с очагом Airtone Andalle 1000, облицован изразцами коллекции Дорф. Специально разработанный проект для ресторанного интерьера. Масштабная облицовка от пола до потолка создаёт величественный акцент.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1184,8 +1244,8 @@
         name: 'Камин Дорф Муравленый',
         collection: 'Коллекция Дорф',
         desc: 'Комплект каминной облицовки Дорф в цвете Муравленый',
-        price: 'от 1 046 000',
-        priceTurnkey: 'от 2 108 000',
+        price: '1 303 647',
+        priceTurnkey: '2 100 000',
         fullDesc: 'Комплект каминной облицовки Дорф в цвете Муравленый. Изразцы с характерной зеленоватой «муравленой» глазурью — традиционной для русского изразцового искусства. Каждый элемент выполнен вручную.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1200,8 +1260,8 @@
         name: 'Камин Арт Нуво',
         collection: 'Коллекция Арт Нуво',
         desc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре',
-        price: 'от 615 000',
-        priceTurnkey: 'от 1 354 000',
+        price: '612 738',
+        priceTurnkey: '1 433 372',
         fullDesc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре. Изящные линии модерна в сочетании с нежными зелёными тонами. Вдохновлён стилем ар-нуво начала XX века.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1216,8 +1276,8 @@
         name: 'Камин Птицы',
         collection: 'Коллекция Птицы',
         desc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы',
-        price: 'от 1 154 000',
-        priceTurnkey: 'от 2 154 000',
+        price: '1 464 041',
+        priceTurnkey: '2 552 550',
         fullDesc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы. Уникальная ручная роспись с изображением птиц в природном окружении. Каждый изразец — это маленькое произведение искусства.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1232,8 +1292,8 @@
         name: 'Камин Византия',
         collection: 'Коллекция Византия',
         desc: 'Изразцовый камин Византия в росписи Олива',
-        price: 'от 1 046 000',
-        priceTurnkey: 'от 2 077 000',
+        price: '1 426 640',
+        priceTurnkey: '2 241 366',
         fullDesc: 'Изразцовый камин Византия в росписи Олива. Богатый орнамент, вдохновлённый византийским искусством, выполнен в тёплых оливковых тонах. Сложная многослойная роспись с золотистыми акцентами.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1248,8 +1308,8 @@
         name: 'Камин Роллерс',
         collection: 'Коллекция Роллерс',
         desc: 'Камин с топкой Астов П2С 8457 в облицовке изразцами коллекции Роллерс',
-        price: 'от 1 231 000',
-        priceTurnkey: 'от 2 508 000',
+        price: '1 465 274',
+        priceTurnkey: '2 450 000',
         fullDesc: 'Камин с топкой Астов П2С 8457 в облицовке изразцами коллекции Роллерс. Современный дизайн с геометрическим рельефом в светлых тонах. Идеальное сочетание классического мастерства и современной эстетики.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1264,8 +1324,8 @@
         name: 'Камин Луна',
         collection: 'Коллекция Луна',
         desc: 'Камин в классическом стиле из коллекции Луна с топкой Spartherm Linear 4S Arte',
-        price: 'от 769 000',
-        priceTurnkey: 'от 2 000 000',
+        price: '920 251',
+        priceTurnkey: '1 850 000',
         fullDesc: 'Камин в классическом стиле из коллекции Луна с топкой Spartherm Linear 4S Arte. Элегантные изразцы с лунным орнаментом в сочетании с премиальной немецкой топкой. Утончённый дизайн для изысканных интерьеров.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1280,8 +1340,8 @@
         name: 'Каминный портал Универсал',
         collection: 'Коллекция Универсал',
         desc: 'Каминный портал Универсал в цвете Арктика',
-        price: 'от 308 000',
-        priceTurnkey: 'от 1 385 000',
+        price: '381 912',
+        priceTurnkey: '950 000',
         fullDesc: 'Каминный портал Универсал в цвете Арктика. Компактный и элегантный портал, подходящий для различных типов топок. Белоснежная глазурь и лаконичный дизайн делают его универсальным решением.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1300,8 +1360,8 @@
         name: 'Угловой камин Универсал',
         collection: 'Коллекция Универсал',
         desc: 'Облицовка углового камина изразцами Универсал',
-        price: 'от 308 000',
-        priceTurnkey: 'от 1 385 000',
+        price: '356 866',
+        priceTurnkey: '950 000',
         fullDesc: 'Облицовка углового камина изразцами Универсал. Топка с двумя стеклами обепечивает широкий обзор огня. Минималистичные изразцы подчеркнуты глазурью благородного зеленого цвета с разнотоном.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1320,8 +1380,8 @@
         name: 'Камин Камея',
         collection: 'Коллекция Камея',
         desc: 'Изразцовый камин в коллекции Камея с художественной росписью ручной работы',
-        price: 'от 508 000',
-        priceTurnkey: 'от 1 200 000',
+        price: '734 935',
+        priceTurnkey: '1 220 000',
         fullDesc: 'Изразцовый камин в коллекции Камея с художественной росписью ручной работы. Классический голландский стиль с характерными сине-белыми медальонами. Широкая полочка и продуманный дровник добавляют функциональности и уюта.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1336,8 +1396,8 @@
         name: 'Камин Браво',
         collection: 'Коллекция Браво',
         desc: 'Камин в облицовке изразцами коллекции Браво с росписью',
-        price: 'от 708 000',
-        priceTurnkey: 'от 1 508 000',
+        price: '835 350',
+        priceTurnkey: '1 580 000',
         fullDesc: 'Камин в облицовке изразцами коллекции Браво с росписью. Яркий и выразительный дизайн с авторской росписью. Каждый камин этой коллекции уникален благодаря ручной работе мастеров.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1352,8 +1412,8 @@
         name: 'Камин Сохо',
         collection: 'Коллекция Сохо',
         desc: 'Облицовка камина до полки с дровниками по бокам в коллекции Сохо',
-        price: 'от 1 308 000',
-        priceTurnkey: 'от 2 800 000',
+        price: '1 712 668',
+        priceTurnkey: '2 830 000',
         fullDesc: 'Облицовка камина до полки с дровниками по бокам в коллекции Сохо. Современный и функциональный дизайн: облицовка доходит до каминной полки, а по бокам расположены дровники. Стильное решение для современных интерьеров.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1368,8 +1428,8 @@
         name: 'Камин Усадьба',
         collection: 'Коллекция Усадьба',
         desc: 'Изразцовый камин Усадьба с призматической угловой топкой',
-        price: 'от 785 000',
-        priceTurnkey: 'от 1 400 000',
+        price: '875 523',
+        priceTurnkey: '1 470 000',
         fullDesc: 'Изразцовый камин Усадьба с призматической угловой топкой. Рельефные изразцы ручной формовки в традиционном стиле русской усадьбы. Призматическая топка и практичные полки создают объемную архитектурную композицию камина.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1385,8 +1445,8 @@
         name: 'Камин Птички',
         collection: 'Коллекция Птички',
         desc: 'Каминная облицовка Птички в декоративной палитре Лесная',
-        price: 'от 677 000',
-        priceTurnkey: 'от 1 400 000',
+        price: '808 246',
+        priceTurnkey: '1 450 000',
         fullDesc: 'Каминная облицовка Птички в декоративной палитре Лесная. Изразцы с миниатюрными птичками среди растительного орнамента в зелёных лесных тонах. Создаёт атмосферу природной гармонии.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1401,8 +1461,8 @@
         name: 'Камин Элеганс',
         collection: 'Коллекция Элеганс',
         desc: 'Комплект каминной облицовки Элеганс в цвете Лесной Туман',
-        price: 'от 785 000',
-        priceTurnkey: 'от 1 738 000',
+        price: '949 823',
+        priceTurnkey: '1 945 720',
         fullDesc: 'Комплект каминной облицовки Элеганс в цвете Лесной Туман. Изысканные изразцы с мягкими приглушёнными тонами, напоминающими утренний туман в лесу. Идеальный выбор для создания спокойной и расслабляющей атмосферы.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1417,8 +1477,8 @@
         name: 'Камин Минималист',
         collection: 'Коллекция Минималист',
         desc: 'Каминная облицовка в стиле минимализм',
-        price: 'от 769 000',
-        priceTurnkey: 'от 1 108 000',
+        price: '907 913',
+        priceTurnkey: '1 367 144',
         fullDesc: 'Каминная облицовка в стиле минимализм. Чистые линии и лаконичные формы без лишнего декора. Идеальный выбор для современных интерьеров, где ценится сдержанность и функциональность.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1433,8 +1493,8 @@
         name: 'Камин Венская',
         collection: 'Коллекция Венская',
         desc: 'Электрокамин белого цвета в изразцах коллекции Венская',
-        price: 'от 677 000',
-        priceTurnkey: 'от 1 200 000',
+        price: '810 963',
+        priceTurnkey: '1 380 000',
         fullDesc: 'Электрокамин белого цвета в изразцах коллекции Венская. Элегантная облицовка в венском стиле для электрокамина. Белоснежные изразцы с утончённым рельефом создают роскошный образ без необходимости дымохода.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1450,8 +1510,8 @@
         name: 'Камин Венская с топкой Brunner',
         collection: 'Коллекция Венская',
         desc: 'Классический камин в облицовке коллекции Венская с топкой Brunner',
-        price: 'от 1 769 000',
-        priceTurnkey: 'от 3 000 000',
+        price: '2 100 676',
+        priceTurnkey: '3 130 000',
         fullDesc: 'Классический камин в облицовке коллекции Венская с топкой Brunner. Премиальный проект: изразцовая облицовка с росписью ручной работы в сочетании с одной из лучших немецких топок. Полностью индивидуальный дизайн по проекту заказчика.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1471,8 +1531,8 @@
         name: 'Барбекю комплекс Альбион<br>с мангалом и казаном',
         collection: 'Коллекция Альбион',
         desc: 'Зона барбекю с мангалом и казаном в загородном доме',
-        price: 'от 1 138 000',
-        priceTurnkey: 'от 3 538 000',
+        price: '1 368 000',
+        priceTurnkey: '3 020 000',
         fullDesc: 'Зона барбекю с мангалом и казаном в загородном доме коллекции «Альбион». Полноценный печной комплекс с мангалом и печью под казан, облицованный белоснежными изразцами. Функциональность и красота в одном решении.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1488,8 +1548,8 @@
         name: 'Барбекю комплекс Альбион<br>с мангалом',
         collection: 'Коллекция Альбион',
         desc: 'Облицовка маленького печного комплекса с мангалом',
-        price: 'от 1 000 000',
-        priceTurnkey: 'от 3 308 000',
+        price: '1 194 000',
+        priceTurnkey: '2 890 000',
         fullDesc: 'Облицовка маленького печного комплекса с мангалом. Компактный вариант барбекю комплекса в изразцовой облицовке Альбион. Идеально подходит для небольших террас и площадок.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1500,13 +1560,29 @@
         images: ['bbq_albion_mini_new_1.jpg','bbq_albion_mini_new_2.jpg','bbq_albion_mini_new_3.jpg']
       },
       {
+        id: 'bbq-versal-klassicheskiy',
+        cat: 'bbq',
+        name: 'Барбекю комплекс<br>в изразцовой облицовке Версаль',
+        collection: 'Коллекция Версаль',
+        desc: 'Барбекю комплекс в изразцовой облицовке Версаль',
+        price: '3 434 000',
+        priceTurnkey: '6 355 000',
+        fullDesc: 'Представительный барбекю комплекс в изразцовой облицовке коллекции Версаль. Классический рельефный орнамент в природных зелёных оттенках придаёт зоне барбекю благородство и изысканность. Открытый камин и духовая печь органично вписаны в монументальную облицовку — идеальное решение для загородной резиденции.',
+        specs: {
+          'Производитель': 'CeramicaDecor',
+          'Коллекция': 'Версаль',
+          'Оборудование': 'Открытый камин, духовка'
+        },
+        images: ['bbk_versal_chern_1.jpg','bbk_versal_chern_2.jpg','bbk_versal_chern_3.jpg','bbk_versal_chern_4.jpg','bbk_versal_chern_5.jpg']
+      },
+      {
         id: 'bbq-versal',
         cat: 'bbq',
         name: 'Барбекю комплекс Версаль',
         collection: 'Коллекция Версаль',
         desc: 'Барбекю комплекс в изразцовой облицовке Версаль',
-        price: 'от 2 862 000',
-        priceTurnkey: 'от 5 692 000',
+        price: '1 628 000',
+        priceTurnkey: '2 190 000',
         fullDesc: 'Барбекю комплекс в изразцовой облицовке Версаль. Лаконичный печной комплекс включает в себя открытый камин и духовку. Облицовка изразцами природного зеленого оттенка превращает зону барбекю в произведение искусства.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1520,8 +1596,8 @@
         name: 'Летняя кухня Версаль',
         collection: 'Коллекция Версаль',
         desc: 'Многофункциональная летняя кухня в облицовке изразцами Версаль',
-        price: 'от 3 538 000',
-        priceTurnkey: 'от 7 077 000',
+        price: '4 243 000',
+        priceTurnkey: '7 893 000',
         fullDesc: 'Многофункциональная летняя кухня в облицовке изразцами Версаль. Масштабный проект с полным набором оборудования: мангал, мойка, духовка, тандыр, рабочие поверхности и дровники. Яркие изразцы голубых оттенков создают настроение летней беседки.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1536,8 +1612,8 @@
         name: 'Мангал Тюльпан',
         collection: 'Коллекция Тюльпан',
         desc: 'Белый мангал в облицовке изразцами коллекции Тюльпан',
-        price: 'от 985 000',
-        priceTurnkey: 'от 2 400 000',
+        price: '1 172 000',
+        priceTurnkey: '2 610 000',
         fullDesc: 'Белый мангал в облицовке изразцами коллекции Тюльпан. Изящный мангал в белоснежных изразцах с лаконичными формами облицовки. Компактное и стильное решение для открытой зоны барбекю.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1552,8 +1628,8 @@
         name: 'Эксклюзивная кухня<br>в изразцовой облицовке',
         collection: 'Коллекция Дорф',
         desc: 'Масштабный проект премиум-класса в облицовке изразцами коллекции Дорф',
-        price: 'от 3 846 000',
-        priceTurnkey: 'от 6 923 000',
+        price: '4 629 000',
+        priceTurnkey: '8 184 000',
         fullDesc: 'Масштабный проект премиум-класса в облицовке изразцами коллекции Дорф. Полный набор необходимого оборудования: большой мангал, мойка, рабочие поверхности, плита, а также встроенная посудомоечная машина, ящики и шкафчики для хранения.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1568,8 +1644,8 @@
         name: 'Барбекю комплекс Дорф<br>с мангалом и духовкой',
         collection: 'Коллекция Дорф',
         desc: 'Барбекю комплекс в ярких зеленых изразцах коллекции Дорф',
-        price: 'от 1 385 000',
-        priceTurnkey: 'от 2 508 000',
+        price: '1 658 000',
+        priceTurnkey: '2 820 000',
         fullDesc: 'Барбекю комплекс в ярких зеленых изразцах коллекции Дорф. Оснащен всем необходимым функционалом: мангал, духовка, печь под казан и вместительный дровник.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1585,8 +1661,8 @@
         name: 'Барбекю комплекс Птички',
         collection: 'Коллекция Птички',
         desc: 'Барбекю комплекс в яркой облицовке «Птички»',
-        price: 'от 1 015 000',
-        priceTurnkey: 'от 2 508 000',
+        price: '1 159 000',
+        priceTurnkey: '2 140 000',
         fullDesc: 'Барбекю комплекс в яркой облицовке «Птички». Жизнерадостный печной комплекс с ярким растительным орнаментом и птичками. Создаёт праздничную атмосферу на открытой террасе.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1604,8 +1680,8 @@
         name: 'Барбекю комплекс Птички и Элеганс',
         collection: 'Коллекции Элеганс и Птички',
         desc: 'Печной комплекс с мангалом и печью под казан в облицовке Элеганс и Птички',
-        price: 'от 1 600 000',
-        priceTurnkey: 'от 3 000 000',
+        price: '1 778 000',
+        priceTurnkey: '2 940 000',
         fullDesc: 'Печной комплекс с мангалом и печью под казан в облицовке изразцами коллекции Элеганс и Птички. Уникальное сочетание двух коллекций создаёт многослойный и интересный визуальный образ.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1620,8 +1696,8 @@
         name: 'Барбекю комплекс Птицы',
         collection: 'Коллекция Птицы',
         desc: 'Печной комплекс из кирпича в коллекции Птицы',
-        price: 'от 3 231 000',
-        priceTurnkey: 'от 5 800 000',
+        price: '3 748 000',
+        priceTurnkey: '5 750 000',
         fullDesc: 'Печной комплекс из кирпича в коллекции Птицы. Масштабный барбекю комплекс с уникальной ручной росписью. Изразцы с изображением птиц превращают печной комплекс в настоящее произведение искусства.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1639,8 +1715,8 @@
         name: 'Летняя кухня Византия',
         collection: 'Коллекция Византия',
         desc: 'Летняя кухня в изразцовой облицовке Византия',
-        price: 'от 708 000',
-        priceTurnkey: 'от 2 369 000',
+        price: '830 000',
+        priceTurnkey: '2 497 000',
         fullDesc: 'Летняя кухня в изразцовой облицовке Византия. Компактный барбекю комплекс с богатым византийским орнаментом. Идеальное сочетание функциональности и декоративного искусства.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1654,8 +1730,8 @@
         name: 'Барбекю комплекс Византия с камином',
         collection: 'Коллекция Византия',
         desc: 'Облицовка печного комплекса с высоким открытым камином изразцами Византия',
-        price: 'от 6 462 000',
-        priceTurnkey: 'от 9 000 000',
+        price: '7 302 000',
+        priceTurnkey: '9 430 000',
         fullDesc: 'Облицовка печного комплекса с высоким открытым камином изразцами Византия. Грандиозный проект с открытым камином и полным набором кулинарного оборудования: мангал, мини русская печь, мойка, рабочие поверхности и шкафчики для хранения.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1670,8 +1746,8 @@
         name: 'Печной комплекс<br>в изразцовой облицовке Византия с беседкой',
         collection: 'Коллекция Византия',
         desc: 'Изразцовая облицовка Византия в палитре росписи Бирюзовая',
-        price: 'от 4 385 000',
-        priceTurnkey: 'от 9 046 000',
+        price: '5 066 000',
+        priceTurnkey: '9 814 000',
         fullDesc: 'Изразцовая облицовка Византия в палитре росписи Бирюзовая. Масштабный проект беседки включает в себя навес из дерева, а также печной комплекс с мангалом, тандыром, печью под казан и другими необходимыми функциями. Сложная геометрия и богатый декор создают впечатляющий ансамбль.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1685,8 +1761,8 @@
         name: 'Мангал Азулежу',
         collection: 'Коллекция Азулежу',
         desc: 'Мангал на кухне в изразцах из коллекции Азулежу',
-        price: 'от 569 000',
-        priceTurnkey: 'от 1 508 000',
+        price: '649 000',
+        priceTurnkey: '1 320 000',
         fullDesc: 'Мангал на кухне в изразцах из коллекции Азулежу. Компактный мангал в стиле португальских азулежу. Сине-белые изразцы с характерным средиземноморским орнаментом создают уютную атмосферу.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1701,8 +1777,8 @@
         name: 'Барбекю комплекс Элеганс',
         collection: 'Коллекция Элеганс',
         desc: 'Облицовка готового печного комплекса с мангалом, печью и плитой',
-        price: 'от 2 508 000',
-        priceTurnkey: 'от 7 508 000',
+        price: '3 014 000',
+        priceTurnkey: '7 560 000',
         fullDesc: 'Облицовка готового печного комплекса с мангалом, печью и плитой. Полнофункциональный барбекю комплекс в изразцовой облицовке Элеганс. Три рабочие зоны: мангал, печь и варочная плита.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1721,8 +1797,8 @@
         name: 'Летняя кухня Элеганс',
         collection: 'Коллекция Элеганс',
         desc: 'Летняя кухня в изразцовой облицовке коллекции Элеганс и столешницей из гранита',
-        price: 'от 723 000',
-        priceTurnkey: 'от 4 000 000',
+        price: '863 000',
+        priceTurnkey: '1 880 000',
         fullDesc: 'Летняя кухня в изразцовой облицовке коллекции Элеганс и столешницей из гранита. Яркие бирюзовые изразцы создают стильный акцент беседки. А наполнение комплекса (мангал, тандыр, плита) позволяет воплотить любые кулинарные идеи.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1738,8 +1814,8 @@
         name: 'Барбекю комплекс Камея',
         collection: 'Коллекция Камея',
         desc: 'Барбекю комплекс в изразцовой облицовке с художественной росписью Птицы',
-        price: 'от 1 477 000',
-        priceTurnkey: 'от 4 000 000',
+        price: '1 759 000',
+        priceTurnkey: '2 560 000',
         fullDesc: 'Барбекю комплекс в изразцовой облицовке с художественной росписью Птицы. Каждый изразец - уникальная сценка с изображением птиц, выполненная вручную. Настоящее произведение искусства, которое хочется разглядывать.',
         specs: {
           'Производитель': 'CeramicaDecor',
@@ -1769,7 +1845,7 @@
         var sliderDots = '';
         p.images.forEach(function(img, idx) {
           var webpImg = img.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-          sliderImgs += '<picture><source srcset="images/' + webpImg + '" type="image/webp"><img src="images/' + img + '" alt="' + p.name + '" loading="lazy" class="' + (idx === 0 ? 'active' : '') + '" onerror="this.style.display=\'none\'"></picture>';
+          sliderImgs += '<picture><source srcset="images/' + webpImg + '" type="image/webp"><img src="images/' + img + '" alt="' + p.name + '" loading="' + (idx === 0 ? 'eager' : 'lazy') + '" class="' + (idx === 0 ? 'active' : '') + '" onerror="this.style.display=\'none\'"></picture>';
           sliderDots += '<button class="product-card__dot' + (idx === 0 ? ' active' : '') + '" data-idx="' + idx + '"></button>';
         });
 
@@ -1913,44 +1989,51 @@
           '</div>' +
         '</div>' +
         '<div class="product-modal__bottom">' +
-          '<div>' +
-            '<div class="product-modal__price">' + p.price + ' &#8381;</div>' +
-            '<div class="product-modal__price-label">Стоимость облицовки</div>' +
+          '<div class="product-modal__prices">' +
+            '<div>' +
+              '<div class="product-modal__price">' + p.price + ' &#8381;</div>' +
+              '<div class="product-modal__price-label">Облицовка</div>' +
+            '</div>' +
+            (p.priceTurnkey ? '<div>' +
+              '<div class="product-modal__price">' + p.priceTurnkey + ' &#8381;</div>' +
+              '<div class="product-modal__price-label">' + (p.cat === 'bbq' ? 'Под ключ (конструктив, облицовка, работа)' : 'Под ключ (топка, дымоход, облицовка, работа)') + '</div>' +
+            '</div>' : '') +
           '</div>' +
-          (p.priceTurnkey ? '<div>' +
-            '<div class="product-modal__price">' + p.priceTurnkey + ' &#8381;</div>' +
-            '<div class="product-modal__price-label">Под ключ</div>' +
-          '</div>' : '') +
-          '<button class="product-modal__wa-btn" style="background:#cb3b25;border:none;cursor:pointer;" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
-            'Оставить заявку' +
-          '</button>' +
+          '<div class="product-modal__actions">' +
+            '<button class="product-modal__request-btn" onclick="openRequestModal(\'' + p.name.replace(/'/g, "\\'") + '\', \'' + p.price + '\')">' +
+              'Оставить заявку' +
+            '</button>' +
+          '</div>' +
+          '<p class="product-modal__promo">Оставьте заявку сейчас, и мы сделаем бесплатный расчет + 3D-проект</p>' +
         '</div>' +
         (function() {
           var rev = getReview(p.name);
           var allReviews = [
-            { yt: '0L_86tx7LKU', label: 'Камин «Дорф». Отзыв клиента' },
-            { yt: '9H20cngXrkg', label: 'Камин «Альбион». Отзыв дизайнера' },
-            { yt: 'OblpYtDbL44', label: 'Камин «Арт Нуво». Отзыв дизайнера' },
-            { yt: 'KWdDdeYNZss', label: 'Камин «Бристоль». Отзыв клиента' },
-            { yt: 'NbW0S_vl7sY', label: 'Камин «Дорф». Отзыв заказчиков' },
-            { yt: 'qd3QKBKgHwE', label: 'Камин «Универсал». Отзыв заказчицы' },
-            { yt: 'dg02wO84kMk', label: 'Камин «Тюльпан». Отзыв заказчицы' }
+            { vk: 'video-178201211_456239596', thumb: 'video_thumb_dorf_client.jpg', label: 'Камин «Дорф». Отзыв клиента' },
+            { vk: 'video-178201211_456239511', thumb: 'video_thumb_albion_designer.jpg', label: 'Камин «Альбион». Отзыв дизайнера' },
+            { vk: 'video-178201211_456239559', thumb: 'video_thumb_artnouvo_designer.jpg', label: 'Камин «Арт Нуво». Отзыв дизайнера' },
+            { vk: 'video-178201211_456239074', thumb: 'video_thumb_bristol_client.jpg', label: 'Камин «Бристоль». Отзыв клиента' },
+            { vk: 'video-178201211_456239504', thumb: 'video_thumb_dorf_customers.jpg', label: 'Камин «Дорф». Отзыв заказчиков' },
+            { vk: 'video-178201211_456239193', thumb: 'video_thumb_universal_client.jpg', label: 'Камин «Универсал». Отзыв заказчицы' },
+            { vk: 'video-178201211_456239167', thumb: 'video_thumb_tulip_client.jpg', label: 'Камин «Тюльпан». Отзыв заказчицы' },
+            { vk: 'video-178201211_456239494', thumb: 'video_thumb_majestic_designer.jpg', label: 'Камин «Маджестик». Отзыв дизайнера' },
+            { vk: 'video-178201211_456239883', thumb: 'video_thumb_dutch_client.jpg', label: 'Печь-голландка. Отзыв хозяйки' }
           ];
           var items = [];
           if (rev) {
             items.push(rev);
             allReviews.forEach(function(r) {
-              if (r.yt !== rev.yt && items.length < 3) items.push(r);
+              if (r.vk !== rev.vk) items.push(r);
             });
           } else {
-            items = allReviews.slice(0, 3);
+            items = allReviews.slice();
           }
           var html = '<div class="product-modal__reviews">' +
             '<h3>Видеоотзывы клиентов</h3>' +
             '<div class="product-modal__reviews-grid">';
           items.forEach(function(r) {
-            html += '<a href="https://www.youtube.com/watch?v=' + r.yt + '" target="_blank" class="product-modal__review-item">' +
-              '<img src="https://img.youtube.com/vi/' + r.yt + '/hqdefault.jpg" alt="' + r.label + '" loading="lazy">' +
+            html += '<a href="https://vk.com/' + r.vk + '" target="_blank" class="product-modal__review-item">' +
+              '<img src="images/' + r.thumb + '" alt="' + r.label + '" loading="lazy">' +
               '<div class="product-modal__review-play"><svg viewBox="0 0 16 16" fill="#fff"><path d="M5 3l8 5-8 5V3z"/></svg></div>' +
               '<div class="product-modal__review-name">' + r.label + '</div>' +
             '</a>';
@@ -2033,8 +2116,16 @@
     var validCategories = ['kaminy', 'bbq'];
     var activeCategory = 'kaminy';
 
+    var categoryTitles = { kaminy: 'Камины', bbq: 'Барбекю комплексы' };
+    var categorySubtitles = {
+      kaminy: 'Камины в керамической облицовке изразцами ручной формовки — сочетание эстетики и долговечности.<br> Термостойкие материалы, надежные конструкции, широкий выбор решений',
+      bbq: 'Многофункциональные барбекю комплексы в керамической облицовке изразцами ручной формовки.<br> Продуманная эргономика, широкий выбор дизайнерских решений, фасадная технология'
+    };
+    var heroTitle = document.querySelector('.catalog-hero__title');
+    var heroSubtitle = document.querySelector('.catalog-hero__subtitle');
+    var heroSection = document.querySelector('.catalog-hero');
+
     function setActiveTab(category) {
-      // izrazcy and unknown categories redirect to kaminy
       if (validCategories.indexOf(category) === -1) category = 'kaminy';
       activeCategory = category;
       tabs.forEach(function(tab) {
@@ -2043,14 +2134,43 @@
           tab.classList.add('catalog-filters__tab--active');
         }
       });
+      if (heroSection) {
+        if (category === 'bbq') {
+          heroSection.classList.add('catalog-hero--bbq');
+        } else {
+          heroSection.classList.remove('catalog-hero--bbq');
+        }
+      }
+      if (heroTitle) heroTitle.textContent = categoryTitles[category] || 'Каталог';
+      if (heroSubtitle) heroSubtitle.innerHTML = categorySubtitles[category] || '';
       renderCards(category);
     }
 
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
         var cat = this.getAttribute('data-category');
+        if (!cat || validCategories.indexOf(cat) === -1) return;
+
+        var animTargets = [
+          heroTitle,
+          heroSubtitle,
+          document.getElementById('catalogTabs')
+        ];
+        animTargets.forEach(function(el) {
+          if (el && el.classList.contains('fade-up')) {
+            el.classList.remove('visible');
+            void el.offsetWidth;
+          }
+        });
+
         setActiveTab(cat);
         history.replaceState(null, '', 'catalog.html?cat=' + cat);
+
+        setTimeout(function() {
+          animTargets.forEach(function(el) {
+            if (el && el.classList.contains('fade-up')) el.classList.add('visible');
+          });
+        }, 10);
       });
     });
 
@@ -2114,21 +2234,17 @@
 
       document.getElementById('requestForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        // Meta Pixel Lead event
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'Request Form', content_category: 'Каталог' });
-        }
-        var name = document.getElementById('requestName').value.trim();
+        var name =document.getElementById('requestName').value.trim();
         var phone = document.getElementById('requestPhone').value.trim();
         var message = document.getElementById('requestMessage').value.trim();
         var tgText = '\u{1F4CB} Новая заявка с сайта РФ!\n\u{1F464} Имя: ' + name + '\n\u{1F4DE} Телефон: ' + phone + '\n\u{1F6D2} Товар: ' + currentRequestProduct;
         if (message) tgText += '\n\u{1F4AC} Комментарий: ' + message;
         tgText += '\n\u{1F4C4} Страница: Каталог';
-        var tgUrl = 'https://api.telegram.org/bot8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A/sendMessage';
+        var tgUrl = 'https://api.telegram.org/botYOUR_BOT_TOKEN/sendMessage';
         fetch(tgUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: '-1003871745435', text: tgText })
+          body: JSON.stringify({ chat_id: 'YOUR_CHAT_ID', text: tgText })
         });
         requestModalBody.innerHTML =
           '<div class="request-modal__success">' +
@@ -2160,5 +2276,11 @@
     <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
   <script src="search.js" defer></script>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p class="cookie-banner__text">Мы используем файлы cookie. Продолжая использование сайта, вы соглашаетесь с нашей <a href="privacy.html">Политикой конфиденциальности</a>.</p>
+    <button class="cookie-banner__btn" id="cookieAccept">Принять</button>
+  </div>
 </body>
 </html>

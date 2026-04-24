@@ -33,19 +33,15 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #101010;
+      background: #101010 url('images/R5VF4879.jpg') center center / cover no-repeat;
       overflow: hidden;
       padding: 160px 0 100px;
     }
     .about-hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(203,59,37,0.12) 0%, transparent 70%);
+      inset: 0;
+      background: rgba(0,0,0,0.60);
       pointer-events: none;
     }
     .about-hero__title {
@@ -313,6 +309,9 @@
       }
     }
     @media (max-width: 768px) {
+      .process-steps {
+        padding-top: 24px;
+      }
       .about-info__cards {
         grid-template-columns: 1fr;
       }
@@ -339,21 +338,6 @@
       }
     }
   </style>
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1914468485855789');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1914468485855789&ev=PageView&noscript=1"/></noscript>
-  <!-- End Meta Pixel Code -->
   <!-- Яндекс.Метрика — TODO: вставить код счётчика -->
   <!-- Яндекс.Вебмастер — TODO: вставить мета-тег верификации -->
 </head>
@@ -362,7 +346,7 @@
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="/" class="header__logo">
+      <a href="index.html" class="header__logo">
         <img src="images/logo.png" alt="CeramicaDecor" class="header__logo-img">
       </a>
       <nav class="header__nav" id="mainNav">
@@ -372,14 +356,14 @@
           <li><a href="izrazcy.html" class="header__nav-link">Изразцы</a></li>
           <li><a href="ready.html" class="header__nav-link">Печи-камины из наличия</a></li>
           <li><a href="about.html" class="header__nav-link">О компании</a></li>
-          <li><a href="index.html#contact" class="header__nav-link">Контакты</a></li>
+          <li><a href="contacts.html" class="header__nav-link">Контакты</a></li>
         </ul>
-        <a href="tel:+74952604346" class="header__nav-phone-link">+7 (495) 260-43-46</a>
+        <a href="tel:+74952293046" class="header__nav-phone-link">+7 (495) 229-30-46</a>
         <div class="header__nav-item--search"><a href="#" class="header__nav-link" id="searchBtnMobile"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Поиск</a></div>
       </nav>
       <div class="header__actions">
         <button class="header__search-btn" id="searchBtn" aria-label="Поиск"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-        <a href="tel:+74952604346" class="header__phone-desktop">+7 (495) 260-43-46</a>
+        <a href="tel:+74952293046" class="header__phone-desktop">+7 (495) 229-30-46</a>
         <button class="header__burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -387,7 +371,7 @@
 
   <!-- ===== HERO ===== -->
   <section class="about-hero" id="hero">
-    <div class="container">
+    <div class="container" style="position:relative;z-index:1;">
       <h1 class="about-hero__title">О компании CeramicaDecor</h1>
       <p class="about-hero__subtitle">Большая творческая команда, объединенная мастерством создания каминов, барбекю комплексов и облицовок из керамики. Более 14 лет опыта, собственный проектный отдел, работа с нуля и под ключ</p>
     </div>
@@ -398,7 +382,7 @@
     <div class="container">
       <div class="about-info__header">
         <h2 class="section-title section-title--center">Современный подход<br>к традиционному искусству</h2>
-        <p class="about-info__desc">Нашим процессом движут смелые идеи, талантливые сотрудники, мастерство и профессионализм. Каждый проект — это единый творческий процесс дизайнеров, скульпторов, формовщиков и художников.</p>
+        <p class="about-info__desc">Нашими процессами движут смелые идеи, мастерство и профессионализм сотрудников. Каждый проект — это совместная творческая работа дизайнеров, проектировщиков, формовщиков и художников.</p>
       </div>
       <div class="about-info__cards">
         <div class="about-info__card">
@@ -434,7 +418,7 @@
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 8l3 6h7l-5.5 4.5 2 7L20 21l-6.5 4.5 2-7L10 14h7l3-6z" stroke="#cb3b25" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
           <h3 class="about-info__card-title">Единый творческий процесс</h3>
-          <p class="about-info__card-text">Каждый проект — это совместная работа дизайнеров, скульпторов, формовщиков и художников. От идеи до готового изделия — всё создаётся на нашем производстве.</p>
+          <p class="about-info__card-text">Каждый проект — это совместная работа дизайнеров, проектировщиков, формовщиков и художников. От идеи до готового изделия — всё создаётся на нашем производстве.</p>
         </div>
         <div class="about-info__card">
           <div class="about-info__card-icon">
@@ -495,13 +479,6 @@
 
         <div class="team-grid__card">
           <div class="team-grid__avatar">
-            <picture><source srcset="images/team_popazov.webp" type="image/webp"><img src="images/team_popazov.jpg" alt="Дмитрий Попазов" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Дмитрий Попазов</h3>
-          <p class="team-grid__role">Директор по строительству</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
             <picture><source srcset="images/team_mamontova.webp" type="image/webp"><img src="images/team_mamontova.jpg" alt="Евгения Мамонтова" loading="lazy"></picture></div>
           <h3 class="team-grid__name">Евгения Мамонтова</h3>
           <p class="team-grid__role">Коммерческий директор</p>
@@ -509,44 +486,9 @@
 
         <div class="team-grid__card">
           <div class="team-grid__avatar">
-            <picture><source srcset="images/team_selischev.webp" type="image/webp"><img src="images/team_selischev.jpg" alt="Александр Селищев" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Александр Селищев</h3>
-          <p class="team-grid__role">Технический директор, главный технолог</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
             <picture><source srcset="images/team_polozova.webp" type="image/webp"><img src="images/team_polozova.jpg" alt="Елена Полозова" loading="lazy"></picture></div>
           <h3 class="team-grid__name">Елена Полозова</h3>
           <p class="team-grid__role">Главный менеджер проектов</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
-            <picture><source srcset="images/team_kryhtina.webp" type="image/webp"><img src="images/team_kryhtina.jpg" alt="Наталия Крыхтина" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Наталия Крыхтина</h3>
-          <p class="team-grid__role">Главный художник</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
-            <picture><source srcset="images/team_lavrova.webp" type="image/webp"><img src="images/team_lavrova.jpg" alt="Илана Лаврова" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Илана Лаврова</h3>
-          <p class="team-grid__role">Главный архитектор-дизайнер</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
-            <picture><source srcset="images/team_basov.webp" type="image/webp"><img src="images/team_basov.jpg" alt="Денис Басов" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Денис Басов</h3>
-          <p class="team-grid__role">Начальник производства</p>
-        </div>
-
-        <div class="team-grid__card">
-          <div class="team-grid__avatar">
-            <picture><source srcset="images/team_kashichkin.webp" type="image/webp"><img src="images/team_kashichkin.jpg" alt="Андрей Кашичкин" loading="lazy"></picture></div>
-          <h3 class="team-grid__name">Андрей Кашичкин</h3>
-          <p class="team-grid__role">Руководитель отдела маркетинга</p>
         </div>
 
         <div class="team-grid__card">
@@ -561,6 +503,48 @@
             <picture><source srcset="images/team_sovetov.webp" type="image/webp"><img src="images/team_sovetov.jpg" alt="Андрей Советов" loading="lazy"></picture></div>
           <h3 class="team-grid__name">Андрей Советов</h3>
           <p class="team-grid__role">Ведущий проектировщик</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <picture><source srcset="images/team_lavrova.webp" type="image/webp"><img src="images/team_lavrova.jpg" alt="Илана Лаврова" loading="lazy"></picture></div>
+          <h3 class="team-grid__name">Илана Лаврова</h3>
+          <p class="team-grid__role">Главный архитектор-дизайнер</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <img src="images/team_Anton.jpg" alt="Антон Ашихмин" loading="lazy"></div>
+          <h3 class="team-grid__name">Антон Ашихмин</h3>
+          <p class="team-grid__role">Начальник производства</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <picture><source srcset="images/team_basov.webp" type="image/webp"><img src="images/team_basov.jpg" alt="Денис Басов" loading="lazy"></picture></div>
+          <h3 class="team-grid__name">Денис Басов</h3>
+          <p class="team-grid__role">Начальник производства</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <picture><source srcset="images/team_selischev.webp" type="image/webp"><img src="images/team_selischev.jpg" alt="Александр Селищев" loading="lazy"></picture></div>
+          <h3 class="team-grid__name">Александр Селищев</h3>
+          <p class="team-grid__role">Технический директор, главный технолог</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <picture><source srcset="images/team_kryhtina.webp" type="image/webp"><img src="images/team_kryhtina.jpg" alt="Наталия Крыхтина" loading="lazy"></picture></div>
+          <h3 class="team-grid__name">Наталия Крыхтина</h3>
+          <p class="team-grid__role">Главный художник</p>
+        </div>
+
+        <div class="team-grid__card">
+          <div class="team-grid__avatar">
+            <img src="images/team_Sergio.jpg" alt="Сергей Ширчков" loading="lazy"></div>
+          <h3 class="team-grid__name">Сергей Ширчков</h3>
+          <p class="team-grid__role">Менеджер по работе с партнерами</p>
         </div>
 
       </div>
@@ -639,6 +623,10 @@
           <label class="contact-form__label" for="contactComment">Комментарий</label>
           <textarea id="contactComment" name="comment" class="contact-form__textarea" placeholder="Расскажите о вашем проекте..."></textarea>
         </div>
+        <label class="consent-label">
+          <input type="checkbox" class="consent-checkbox" id="contactConsent">
+          <span>Я даю согласие на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank">политикой конфиденциальности</a></span>
+        </label>
         <button type="submit" class="contact-form__submit" id="contactSubmitBtn">Отправить заявку</button>
         <div class="contact-form__success" id="contactSuccess">Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.</div>
         <div class="contact-form__error" id="contactError">Произошла ошибка при отправке. Пожалуйста, попробуйте ещё раз или свяжитесь с нами по телефону.</div>
@@ -646,13 +634,6 @@
     </div>
   </section>
 
-  <section class="archive-wrapper">
-    <div class="showcase__mid-cta" style="text-align:center;padding:60px 20px;">
-      <p class="showcase__mid-cta-title">Готовы обсудить ваш проект?</p>
-      <p class="showcase__mid-cta-text">Оставьте заявку — мы подготовим индивидуальный расчёт и 3D-визуализацию бесплатно</p>
-      <a href="#contact" class="btn btn--primary btn--large">Рассчитать стоимость</a>
-    </div>
-  </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer" id="footer">
@@ -665,32 +646,28 @@
         </div>
         <div class="footer__columns">
           <div class="footer__col">
-            <h4 class="footer__col-title">Каталог</h4>
+            <h4 class="footer__col-title" style="font-size:16px;font-weight:500;">Каталог</h4>
             <ul class="footer__col-list">
-              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="izrazcy.html">Изразцы</a></li>
+              <li><a href="catalog.html?cat=kaminy">Камины</a></li>
               <li><a href="catalog.html?cat=bbq">Барбекю комплексы</a></li>
               <li><a href="ready.html">Печи-камины из наличия</a></li>
             </ul>
           </div>
           <div class="footer__col">
-            <h4 class="footer__col-title">Компания</h4>
-            <ul class="footer__col-list">
-              <li><a href="about.html">О нас</a></li>
-              <li><a href="index.html#contact">Контакты</a></li>
-            </ul>
-          </div>
-          <div class="footer__col">
-            <h4 class="footer__col-title">Контакты</h4>
-            <ul class="footer__col-list">
-              <li><a href="tel:+74952604346">+7 (495) 260-43-46</a></li>
-              <li><a href="mailto:info@ceramicadecor.kz">info@ceramicadecor.kz</a></li>
+            <ul class="footer__col-list footer__col-list--offset">
+              <li><a href="about.html" style="color:#fff;font-size:16px;font-weight:500;">О компании</a></li>
+              <li><a href="contacts.html" style="color:#fff;font-size:16px;font-weight:500;">Контакты</a></li>
+              <li><a href="tel:+74952293046" style="font-weight:700;">+7 (495) 229-30-46</a></li>
+              <li><a href="mailto:info@ceramicadecor.ru" style="font-weight:700;">info@ceramicadecor.ru</a></li>
+              <li style="margin-top: 0.75em;"><a href="contacts.html" class="btn btn--primary" style="padding:9px 20px;font-size:13px;color:#fff;">Оставить заявку</a></li>
             </ul>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
         <p class="footer__copy">&copy; 2013&ndash;2026 CeramicaDecor. Все права защищены.</p>
+        <p class="footer__org-info">ООО «АРТ КЕРАМИКА» &middot; ИНН&nbsp;5018178964 &middot; ОГРН&nbsp;1155018002150 &middot; 141068, Московская обл., г.&nbsp;Королев, ул.&nbsp;Силикатная, д.&nbsp;74, пом.&nbsp;204</p>
         <div class="footer__legal">
           <a href="privacy.html" target="_blank">Политика конфиденциальности</a>
           <a href="terms.html" target="_blank">Пользовательское соглашение</a>
@@ -699,7 +676,10 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <button class="scroll-to-top" aria-label="Наверх">
+    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <script src="script.js" defer></script>
   <script>
     (function() {
       var form = document.getElementById('aboutContactForm');
@@ -721,14 +701,15 @@
           errorMsg.style.display = 'block';
           return;
         }
+        var consent = document.getElementById('contactConsent');
+        if (consent && !consent.checked) {
+          errorMsg.textContent = 'Пожалуйста, дайте согласие на обработку персональных данных.';
+          errorMsg.style.display = 'block';
+          return;
+        }
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка...';
-
-        // Meta Pixel Lead event
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'Contact Form', content_category: 'О компании' });
-        }
 
         var text = '\u{1F4CB} Новая заявка с сайта РФ!\n'
           + '\u{1F464} Имя: ' + name + '\n'
@@ -736,8 +717,8 @@
           + '\u{1F4AC} Комментарий: ' + (comment || '—') + '\n'
           + '\u{1F4C4} Страница: О компании';
 
-        var botToken = '8724536509:AAGgAWOhsJ2n8T0xRmb3dOt7vQY3WwHVq3A';
-        var chatId = '-1003871745435';
+        var botToken = 'YOUR_BOT_TOKEN';
+        var chatId = 'YOUR_CHAT_ID';
         var url = 'https://api.telegram.org/bot' + botToken + '/sendMessage';
 
         fetch(url, {
@@ -768,9 +749,12 @@
       });
     })();
   </script>
-  <button class="scroll-to-top" aria-label="Наверх">
-    <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-  </button>
   <script src="search.js" defer></script>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p class="cookie-banner__text">Мы используем файлы cookie. Продолжая использование сайта, вы соглашаетесь с нашей <a href="privacy.html">Политикой конфиденциальности</a>.</p>
+    <button class="cookie-banner__btn" id="cookieAccept">Принять</button>
+  </div>
 </body>
 </html>
