@@ -101,8 +101,8 @@
   );
 
   fadeElements.forEach(function (el) {
-    // Skip cat-cards section and catalog grid — show immediately
-    if (el.closest('.cat-cards') || el.closest('.catalog-grid')) return;
+    // Skip cat-cards section, catalog grid and izrazcy catalog — show immediately
+    if (el.closest('.cat-cards') || el.closest('.catalog-grid') || el.closest('.izrazcy-catalog')) return;
     if (!el.classList.contains('fade-up')) {
       el.classList.add('fade-up');
     }
