@@ -271,11 +271,11 @@
     var touchEndX = 0;
 
     showcaseGallery.addEventListener('touchstart', function (e) {
-      touchStartX = e.changedTouches[0].screenX;
+      touchStartX = e.changedTouches[0].clientX;
     }, { passive: true });
 
     showcaseGallery.addEventListener('touchend', function (e) {
-      touchEndX = e.changedTouches[0].screenX;
+      touchEndX = e.changedTouches[0].clientX;
       var diff = touchStartX - touchEndX;
       if (Math.abs(diff) > 50) {
         if (diff > 0) goToSlide(currentSlide + 1);
@@ -343,10 +343,6 @@
       }
     }, { passive: true });
   }
-
-  document.querySelectorAll('a[href*="catalog.html"]').forEach(function (link) {
-    link.addEventListener('click', function () {
-  });
 
   /* ----- VK video reviews ----- */
   document.querySelectorAll('.one_story--video').forEach(function (card) {
@@ -481,19 +477,18 @@
   });
 
   /* ----- Cookie banner ----- */
-  document.addEventListener('DOMContentLoaded', function () {
-    var cookieBanner = document.getElementById('cookieBanner');
-    var cookieAcceptBtn = document.getElementById('cookieAccept');
-    if (!cookieBanner || !cookieAcceptBtn) return;
+  var cookieBanner = document.getElementById('cookieBanner');
+  var cookieAcceptBtn = document.getElementById('cookieAccept');
+  if (cookieBanner && cookieAcceptBtn) {
     if (localStorage.getItem('cookieAccepted')) {
       cookieBanner.style.display = 'none';
-      return;
+    } else {
+      cookieAcceptBtn.addEventListener('click', function () {
+        localStorage.setItem('cookieAccepted', '1');
+        cookieBanner.classList.add('cookie-banner--hidden');
+        setTimeout(function () { cookieBanner.style.display = 'none'; }, 320);
+      });
     }
-    cookieAcceptBtn.addEventListener('click', function () {
-      localStorage.setItem('cookieAccepted', '1');
-      cookieBanner.classList.add('cookie-banner--hidden');
-      setTimeout(function () { cookieBanner.style.display = 'none'; }, 320);
-    });
-  });
+  }
 
 })();

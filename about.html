@@ -33,9 +33,20 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #101010 url('images/R5VF4879.jpg') center center / cover no-repeat;
+      background: #101010 url('images/about_hero_desktop.jpg') center center / cover no-repeat;
       overflow: hidden;
       padding: 160px 0 100px;
+    }
+    @supports (background-image: url('x.webp')) {
+      .about-hero { background-image: url('images/about_hero_desktop.webp'); }
+    }
+    @media (max-width: 768px) {
+      .about-hero { background-image: url('images/about_hero_mobile.jpg'); }
+    }
+    @supports (background-image: url('x.webp')) {
+      @media (max-width: 768px) {
+        .about-hero { background-image: url('images/about_hero_mobile.webp'); }
+      }
     }
     .about-hero::before {
       content: '';

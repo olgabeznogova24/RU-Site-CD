@@ -29,20 +29,30 @@
       padding: 160px 0 140px;
       text-align: center;
       position: relative;
-      background: url('images/banner-kaminy_web.jpg') center 20%/cover no-repeat;
+      background: url('images/banner-kaminy_desktop.jpg') center 20%/cover no-repeat;
       margin-bottom: -60px;
     }
     @supports (background-image: url('x.webp')) {
       .catalog-hero {
-        background-image: url('images/banner-kaminy_web.webp');
+        background-image: url('images/banner-kaminy_desktop.webp');
       }
       .catalog-hero--bbq {
-        background-image: url('images/banner-bbk_web.webp');
+        background-image: url('images/banner-bbk_desktop.webp');
       }
     }
     .catalog-hero--bbq {
-      background-image: url('images/banner-bbk_web.jpg');
+      background-image: url('images/banner-bbk_desktop.jpg');
       background-position: center 20%;
+    }
+    @media (max-width: 768px) {
+      .catalog-hero { background-image: url('images/banner-kaminy_mobile.jpg'); }
+      .catalog-hero--bbq { background-image: url('images/banner-bbk_mobile.jpg'); }
+    }
+    @supports (background-image: url('x.webp')) {
+      @media (max-width: 768px) {
+        .catalog-hero { background-image: url('images/banner-kaminy_mobile.webp'); }
+        .catalog-hero--bbq { background-image: url('images/banner-bbk_mobile.webp'); }
+      }
     }
     .catalog-hero::before {
       content: '';
@@ -469,6 +479,57 @@
     }
     .product-card__btn svg {
       flex-shrink: 0;
+    }
+
+    /* ===== VK VIDEO MODAL ===== */
+    .vk-video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .vk-video-modal.active { display: flex; }
+    .vk-video-modal__backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+    }
+    .vk-video-modal__box {
+      position: relative;
+      z-index: 1;
+      width: 90vw;
+      max-width: 960px;
+    }
+    .vk-video-modal__close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 36px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      opacity: 0.8;
+    }
+    .vk-video-modal__close:hover { opacity: 1; }
+    .vk-video-modal__player {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .vk-video-modal__player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     /* ===== REQUEST MODAL ===== */
@@ -1087,7 +1148,16 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- VK VIDEO MODAL (must be before inline script so getElementById works) -->
+  <div id="vkVideoModal" class="vk-video-modal">
+    <div class="vk-video-modal__backdrop"></div>
+    <div class="vk-video-modal__box">
+      <button class="vk-video-modal__close" aria-label="Закрыть">&times;</button>
+      <div class="vk-video-modal__player" id="vkVideoPlayer"></div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
   <script>
   (function() {
     'use strict';
@@ -1154,6 +1224,22 @@
         images: ['kamin_albion_bio_new_1.jpg','kamin_albion_bio_new_2.jpg','kamin_albion_bio_new_3.jpg','kamin_albion_bio_new_4.jpg','kamin_albion_bio_new_5.jpg','kamin_albion_bio_new_6.jpg']
       },
       {
+        id: 'kamin-artnuvo',
+        cat: 'kaminy',
+        name: 'Камин Арт Нуво',
+        collection: 'Коллекция Арт Нуво',
+        desc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре',
+        price: '612 738',
+        priceTurnkey: '1 433 372',
+        fullDesc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре. Изящные линии модерна в сочетании с нежными зелёными тонами. Вдохновлён стилем ар-нуво начала XX века.',
+        specs: {
+          'Производитель': 'CeramicaDecor',
+          'Коллекция': 'Арт Нуво',
+          'Палитра': 'Фисташковая'
+        },
+        images: ['kamin_artnuvo_new_1.jpg','kamin_artnuvo_new_2.jpg','kamin_artnuvo_new_3.jpg','kamin_artnuvo_new_4.jpg','kamin_artnuvo_new_5.jpg','kamin_artnuvo_new_6.jpg']
+      },
+      {
         id: 'kamin-tulpan',
         cat: 'kaminy',
         name: 'Камин Тюльпан',
@@ -1184,6 +1270,22 @@
           'Цвет': 'Арктика'
         },
         images: ['kamin_tulpan_arktika_new_1.jpg','kamin_tulpan_arktika_new_2.jpg','kamin_tulpan_arktika_new_3.jpg','kamin_tulpan_arktika_new_4.jpg','kamin_tulpan_arktika_new_5.jpg','kamin_tulpan_arktika_new_6.jpg']
+      },
+      {
+        id: 'kamin-pticy',
+        cat: 'kaminy',
+        name: 'Камин Птицы',
+        collection: 'Коллекция Птицы',
+        desc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы',
+        price: '1 464 041',
+        priceTurnkey: '2 552 550',
+        fullDesc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы. Уникальная ручная роспись с изображением птиц в природном окружении. Каждый изразец — это маленькое произведение искусства.',
+        specs: {
+          'Производитель': 'CeramicaDecor',
+          'Коллекция': 'Птицы',
+          'Топка': 'АСТОВ П2С'
+        },
+        images: ['kamin_pticy_new_1.jpg','kamin_pticy_new_2.jpg','kamin_pticy_new_3.jpg','kamin_pticy_new_4.jpg','kamin_pticy_new_5.jpg','kamin_pticy_new_6.jpg']
       },
       {
         id: 'kamin-versal',
@@ -1253,38 +1355,6 @@
           'Цвет': 'Муравленый'
         },
         images: ['kamin_dorf_murav_new_1.jpg','kamin_dorf_murav_new_2.jpg','kamin_dorf_murav_new_3.jpg','kamin_dorf_murav_new_4.jpg','kamin_dorf_murav_new_5.jpg','kamin_dorf_murav_new_6.jpg']
-      },
-      {
-        id: 'kamin-artnuvo',
-        cat: 'kaminy',
-        name: 'Камин Арт Нуво',
-        collection: 'Коллекция Арт Нуво',
-        desc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре',
-        price: '612 738',
-        priceTurnkey: '1 433 372',
-        fullDesc: 'Комплект каминной облицовки Арт Нуво в фисташковой декоративной палитре. Изящные линии модерна в сочетании с нежными зелёными тонами. Вдохновлён стилем ар-нуво начала XX века.',
-        specs: {
-          'Производитель': 'CeramicaDecor',
-          'Коллекция': 'Арт Нуво',
-          'Палитра': 'Фисташковая'
-        },
-        images: ['kamin_artnuvo_new_1.jpg','kamin_artnuvo_new_2.jpg','kamin_artnuvo_new_3.jpg','kamin_artnuvo_new_4.jpg','kamin_artnuvo_new_5.jpg','kamin_artnuvo_new_6.jpg']
-      },
-      {
-        id: 'kamin-pticy',
-        cat: 'kaminy',
-        name: 'Камин Птицы',
-        collection: 'Коллекция Птицы',
-        desc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы',
-        price: '1 464 041',
-        priceTurnkey: '2 552 550',
-        fullDesc: 'Изразцовый камин с топкой Астов П2С в облицовке Птицы. Уникальная ручная роспись с изображением птиц в природном окружении. Каждый изразец — это маленькое произведение искусства.',
-        specs: {
-          'Производитель': 'CeramicaDecor',
-          'Коллекция': 'Птицы',
-          'Топка': 'АСТОВ П2С'
-        },
-        images: ['kamin_pticy_new_1.jpg','kamin_pticy_new_2.jpg','kamin_pticy_new_3.jpg','kamin_pticy_new_4.jpg','kamin_pticy_new_5.jpg','kamin_pticy_new_6.jpg']
       },
       {
         id: 'kamin-vizantiya',
@@ -1560,6 +1630,25 @@
         images: ['bbq_albion_mini_new_1.jpg','bbq_albion_mini_new_2.jpg','bbq_albion_mini_new_3.jpg']
       },
       {
+        id: 'bbq-ptichki',
+        cat: 'bbq',
+        name: 'Барбекю комплекс Птички',
+        collection: 'Коллекция Птички',
+        desc: 'Барбекю комплекс в яркой облицовке «Птички»',
+        price: '1 159 000',
+        priceTurnkey: '2 140 000',
+        fullDesc: 'Барбекю комплекс в яркой облицовке «Птички». Жизнерадостный печной комплекс с ярким растительным орнаментом и птичками. Создаёт праздничную атмосферу на открытой террасе.',
+        specs: {
+          'Производитель': 'CeramicaDecor',
+          'Артикул': '3548',
+          'Вес облицовки': '252.7 кг',
+          'Ширина': '3065 мм',
+          'Высота': '2025 мм',
+          'Глубина': '2620 мм'
+        },
+        images: ['bbq_ptichki_new_1.jpg','bbq_ptichki_new_2.jpg','bbq_ptichki_new_3.jpg','bbq_ptichki_new_4.jpg','bbq_ptichki_new_5.jpg','bbq_ptichki_new_6.jpg']
+      },
+      {
         id: 'bbq-versal-klassicheskiy',
         cat: 'bbq',
         name: 'Барбекю комплекс<br>в изразцовой облицовке Версаль',
@@ -1605,6 +1694,22 @@
           'Цвет': 'Синий'
         },
         images: ['bbq_versal_siniy_new_1.jpg','bbq_versal_siniy_new_2.jpg','bbq_versal_siniy_new_3.jpg','bbq_versal_siniy_new_4.jpg','bbq_versal_siniy_new_5.jpg','bbq_versal_siniy_new_6.jpg']
+      },
+      {
+        id: 'bbq-azulezhu',
+        cat: 'bbq',
+        name: 'Мангал Азулежу',
+        collection: 'Коллекция Азулежу',
+        desc: 'Мангал на кухне в изразцах из коллекции Азулежу',
+        price: '649 000',
+        priceTurnkey: '1 320 000',
+        fullDesc: 'Мангал на кухне в изразцах из коллекции Азулежу. Компактный мангал в стиле португальских азулежу. Сине-белые изразцы с характерным средиземноморским орнаментом создают уютную атмосферу.',
+        specs: {
+          'Производитель': 'CeramicaDecor',
+          'Коллекция': 'Азулежу',
+          'Оборудование': 'Мангал'
+        },
+        images: ['bbq_azulezhu_new_1.jpg','bbq_azulezhu_new_2.jpg','bbq_azulezhu_new_3.jpg','bbq_azulezhu_new_4.jpg','bbq_azulezhu_new_5.jpg','bbq_azulezhu_new_6.jpg']
       },
       {
         id: 'bbq-tulpan',
@@ -1654,25 +1759,6 @@
           'Оборудование': 'Мангал, дровник'
         },
         images: ['bbq_dorf_mangal_new_1.jpg','bbq_dorf_mangal_new_2.jpg','bbq_dorf_mangal_new_3.jpg','bbq_dorf_mangal_new_4.jpg','bbq_dorf_mangal_new_5.jpg','bbq_dorf_mangal_new_6.jpg']
-      },
-      {
-        id: 'bbq-ptichki',
-        cat: 'bbq',
-        name: 'Барбекю комплекс Птички',
-        collection: 'Коллекция Птички',
-        desc: 'Барбекю комплекс в яркой облицовке «Птички»',
-        price: '1 159 000',
-        priceTurnkey: '2 140 000',
-        fullDesc: 'Барбекю комплекс в яркой облицовке «Птички». Жизнерадостный печной комплекс с ярким растительным орнаментом и птичками. Создаёт праздничную атмосферу на открытой террасе.',
-        specs: {
-          'Производитель': 'CeramicaDecor',
-          'Артикул': '3548',
-          'Вес облицовки': '252.7 кг',
-          'Ширина': '3065 мм',
-          'Высота': '2025 мм',
-          'Глубина': '2620 мм'
-        },
-        images: ['bbq_ptichki_new_1.jpg','bbq_ptichki_new_2.jpg','bbq_ptichki_new_3.jpg','bbq_ptichki_new_4.jpg','bbq_ptichki_new_5.jpg','bbq_ptichki_new_6.jpg']
       },
       {
         id: 'bbq-ptichki-elegans',
@@ -1754,22 +1840,6 @@
           'Коллекция': 'Византия'
         },
         images: ['bbq_vizantiya_big_new_1.jpg','bbq_vizantiya_big_new_2.jpg','bbq_vizantiya_big_new_3.jpg','bbq_vizantiya_big_new_4.jpg','bbq_vizantiya_big_new_5.jpg','bbq_vizantiya_big_new_6.jpg']
-      },
-      {
-        id: 'bbq-azulezhu',
-        cat: 'bbq',
-        name: 'Мангал Азулежу',
-        collection: 'Коллекция Азулежу',
-        desc: 'Мангал на кухне в изразцах из коллекции Азулежу',
-        price: '649 000',
-        priceTurnkey: '1 320 000',
-        fullDesc: 'Мангал на кухне в изразцах из коллекции Азулежу. Компактный мангал в стиле португальских азулежу. Сине-белые изразцы с характерным средиземноморским орнаментом создают уютную атмосферу.',
-        specs: {
-          'Производитель': 'CeramicaDecor',
-          'Коллекция': 'Азулежу',
-          'Оборудование': 'Мангал'
-        },
-        images: ['bbq_azulezhu_new_1.jpg','bbq_azulezhu_new_2.jpg','bbq_azulezhu_new_3.jpg','bbq_azulezhu_new_4.jpg','bbq_azulezhu_new_5.jpg','bbq_azulezhu_new_6.jpg']
       },
       {
         id: 'bbq-elegans',
@@ -2032,11 +2102,11 @@
             '<h3>Видеоотзывы клиентов</h3>' +
             '<div class="product-modal__reviews-grid">';
           items.forEach(function(r) {
-            html += '<a href="https://vk.com/' + r.vk + '" target="_blank" class="product-modal__review-item">' +
+            html += '<div data-vk="' + r.vk + '" class="product-modal__review-item">' +
               '<img src="images/' + r.thumb + '" alt="' + r.label + '" loading="lazy">' +
               '<div class="product-modal__review-play"><svg viewBox="0 0 16 16" fill="#fff"><path d="M5 3l8 5-8 5V3z"/></svg></div>' +
               '<div class="product-modal__review-name">' + r.label + '</div>' +
-            '</a>';
+            '</div>';
           });
           html += '</div></div>';
           return html;
@@ -2108,6 +2178,42 @@
     });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    /* ===== VK VIDEO MODAL ===== */
+    var vkModal = document.getElementById('vkVideoModal');
+    var vkPlayer = document.getElementById('vkVideoPlayer');
+    var vkClose = vkModal.querySelector('.vk-video-modal__close');
+    var vkBackdrop = vkModal.querySelector('.vk-video-modal__backdrop');
+
+    function openVkVideo(vkId) {
+      var parts = vkId.replace('video', '').split('_');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://vk.com/video_ext.php?oid=' + parts[0] + '&id=' + parts[1] + '&hd=2&autoplay=1';
+      iframe.setAttribute('allow', 'autoplay; encrypted-media; fullscreen');
+      iframe.setAttribute('allowfullscreen', '');
+      vkPlayer.innerHTML = '';
+      vkPlayer.appendChild(iframe);
+      vkModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVkVideo() {
+      vkModal.classList.remove('active');
+      vkPlayer.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+
+    vkClose.addEventListener('click', closeVkVideo);
+    vkBackdrop.addEventListener('click', closeVkVideo);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && vkModal.classList.contains('active')) closeVkVideo();
+    });
+
+    // Event delegation: catch clicks on review items inside dynamically rendered product modal
+    document.addEventListener('click', function(e) {
+      var item = e.target.closest('.product-modal__review-item[data-vk]');
+      if (item) openVkVideo(item.dataset.vk);
     });
 
     /* ===== FILTER TABS ===== */
