@@ -839,6 +839,7 @@ ul, ol {
   background-image: url('images/top_highlight_1.webp');
   background-position: bottom center;
   background-repeat: no-repeat;
+  background-size: 100% auto;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
   pointer-events: none;
@@ -890,17 +891,6 @@ ul, ol {
   overflow: hidden;
 }
 
-.about__banner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, #101010 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
 
 .about__banner::before {
   content: '';
