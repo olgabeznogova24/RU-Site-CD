@@ -488,6 +488,19 @@
         cookieBanner.classList.add('cookie-banner--hidden');
         setTimeout(function () { cookieBanner.style.display = 'none'; }, 320);
       });
+
+      var catSection = document.getElementById('categories');
+      if (catSection && 'IntersectionObserver' in window) {
+        var cookieObserver = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            cookieBanner.classList.remove('cookie-banner--hidden');
+            cookieObserver.disconnect();
+          }
+        }, { threshold: 0.1 });
+        cookieObserver.observe(catSection);
+      } else {
+        cookieBanner.classList.remove('cookie-banner--hidden');
+      }
     }
   }
 

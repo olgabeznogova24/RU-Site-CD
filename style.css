@@ -515,6 +515,7 @@ ul, ol {
 
 .hero__trust {
   max-width: 520px;
+  margin-top: 24px;
 }
 
 .hero__buttons {
@@ -545,7 +546,7 @@ ul, ol {
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 0;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero__feature {
@@ -702,7 +703,7 @@ ul, ol {
 
 /* ===== CATEGORY CARDS ===== */
 .cat-cards {
-  padding: 60px 0 20px;
+  padding: 24px 0 20px;
 }
 
 .cat-cards__grid {
@@ -825,26 +826,10 @@ ul, ol {
 
 .about__heading {
   text-align: center;
-  padding: 40px 0 80px 0;
+  padding: 48px 0 60px 0;
   position: relative;
 }
 
-.about__heading::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 240px;
-  background-image: url('images/top_highlight_1.webp');
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 70%);
-  pointer-events: none;
-  z-index: 0;
-}
 
 .about__header {
   max-width: 800px;
@@ -985,8 +970,9 @@ ul, ol {
 
 @media (max-width: 960px) {
   .about__heading {
-    padding: 18px 0 30px 0;
+    padding: 18px 0 24px 0;
   }
+
 
   .about__heading h2 {
     font-size: 22px;
@@ -1003,6 +989,7 @@ ul, ol {
 
   .about__subheader {
     margin: 10px 0 0 0;
+    font-size: 16px;
   }
 }
 
