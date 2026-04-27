@@ -2796,8 +2796,9 @@ ul, ol {
   }
 
   .hero__bg img {
-    object-position: center 50%;
-    transform: none;
+    object-position: 50% center;
+    transform: translateY(-5px);
+    transform-origin: center center;
   }
 
   .hero__overlay {
