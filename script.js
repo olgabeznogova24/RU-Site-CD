@@ -412,19 +412,26 @@
   }
 
   /* ----- Request Modal ----- */
-  window.openRequestModal = function(productName) {
-    var modal = document.getElementById('requestModal');
-    if (!modal) return;
-    if (productName) modal.querySelector('[name="product"]').value = productName;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  };
-  window.closeRequestModal = function() {
-    var modal = document.getElementById('requestModal');
-    if (!modal) return;
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  };
+  if (!window.openRequestModal) {
+    window.openRequestModal = function(productName) {
+      var modal = document.getElementById('requestModal');
+      if (!modal) return;
+      if (productName) {
+        var productInput = modal.querySelector('[name="product"]');
+        if (productInput) productInput.value = productName;
+      }
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+  }
+  if (!window.closeRequestModal) {
+    window.closeRequestModal = function() {
+      var modal = document.getElementById('requestModal');
+      if (!modal) return;
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+  }
 
   var modalOverlay = document.querySelector('.request-modal__overlay');
   if (modalOverlay) modalOverlay.addEventListener('click', closeRequestModal);

@@ -1991,9 +1991,9 @@
           });
         })(card, p.images);
 
-        // Click on card opens modal (except arrows, dots, wa)
+        // Click on card opens modal (except arrows, dots, request button)
         card.addEventListener('click', function(e) {
-          if (e.target.closest('.product-card__arrow') || e.target.closest('.product-card__dot')) return;
+          if (e.target.closest('.product-card__arrow') || e.target.closest('.product-card__dot') || e.target.closest('.product-card__btn--request')) return;
           openModal(p.id);
         });
 
